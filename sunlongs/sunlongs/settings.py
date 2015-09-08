@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'chinese',
     'english',
+    'backend',
 )
 
 MIDDLEWARE_CLASSES = (
