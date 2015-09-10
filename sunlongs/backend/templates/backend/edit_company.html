@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>双龙泵业 Admin - Gallery</title>
+	<title>双龙泵业 Admin - 页面编辑</title>
     
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
@@ -156,92 +156,48 @@
     <!-- sidebar -->
     <div id="sidebar-nav">
         <ul id="dashboard-menu">
-            <li>                
+            <li>
                 <a href="index.html">
                     <i class="icon-home"></i>
-                    <span>Home</span>
-                </a>
-            </li>            
-            <li>
-                <a href="chart-showcase.html">                    
-                    <i class="icon-signal"></i>
-                    <span>Charts</span>
+                    <span>总览</span>
                 </a>
             </li>
             <li>
-                <a class="dropdown-toggle" href="#">
-                    <i class="icon-group"></i>
-                    <span>Users</span>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="user-list.html">User list</a></li>
-                    <li><a href="new-user.html">New user form</a></li>
-                    <li><a href="user-profile.html">User profile</a></li>
-                </ul>
-            </li>
-            <li>
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
                 <a class="dropdown-toggle" href="#">
                     <i class="icon-edit"></i>
-                    <span>Forms</span>
+                    <span>页面编辑</span>
                     <i class="icon-chevron-down"></i>
                 </a>
                 <ul class="submenu">
-                    <li><a href="form-showcase.html">Form showcase</a></li>
-                    <li><a href="form-wizard.html">Form wizard</a></li>
+                    <li><a href="form-showcase.html">首页</a></li>
+                    <li><a href="form-wizard.html">关于公司</a></li>
+                    <li><a href="form-wizard.html">产品展示</a></li>
+                    <li><a href="form-wizard.html">新闻中心</a></li>
+                    <li><a href="form-wizard.html">客户服务</a></li>
+                    <li><a href="form-wizard.html">联系我们</a></li>
                 </ul>
             </li>
-            <li class="active">
-                <a href="gallery.html">
-                    <div class="pointer">
-                        <div class="arrow"></div>
-                        <div class="arrow_border"></div>
-                    </div>
-                    <i class="icon-picture"></i>
-                    <span>Gallery</span>
-                </a>
-            </li>
             <li>
-                <a href="calendar.html">                    
-                    <i class="icon-calendar-empty"></i>
-                    <span>Calendar</span>
+                <a href="gallery.html">
+                    <i class="icon-picture"></i>
+                    <span>素材编辑</span>
                 </a>
             </li>
             <li>
                 <a href="tables.html">
                     <i class="icon-th-large"></i>
-                    <span>Tables</span>
+                    <span>查收邮件</span>
                 </a>
-            </li>
-            <li>
-                <a class="dropdown-toggle ui-elements" href="#">
-                    <i class="icon-code-fork"></i>
-                    <span>UI Elements</span>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="ui-elements.html">UI Elements</a></li>
-                    <li><a href="icons.html">Icons</a></li>
-                </ul>
             </li>
             <li>
                 <a href="personal-info.html">
                     <i class="icon-cog"></i>
-                    <span>My Info</span>
+                    <span>设置</span>
                 </a>
-            </li>
-            <li>
-                <a class="dropdown-toggle" href="#">
-                    <i class="icon-share-alt"></i>
-                    <span>Extras</span>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="code-editor.html">Code editor</a></li>
-                    <li><a href="grids.html">Grids</a></li>
-                    <li><a href="signin.html">Sign in</a></li>
-                    <li><a href="signup.html">Sign up</a></li>
-                </ul>
             </li>
         </ul>
     </div>
@@ -266,82 +222,45 @@
         
         <div class="container-fluid">
             <div id="pad-wrapper" class="gallery">
-                <div class="row-fluid header">
-                    <h3>首页图片管理（推荐大小1920 * 540）</h3>
-                </div>
-
-                <!-- gallery wrapper -->
-                <div class="gallery-wrapper">
-                    <div class="row gallery-row">
-                        <!-- single image -->
-                        <div class="span3 img-container">
-                            <div class="img-box">
-                                <span class="icon edit">
-                                    <i class="gallery-edit"></i>
-                                </span>
-                                <span class="icon trash">
-                                    <i class="gallery-trash"></i>
-                                </span>
-                                <img src="img/gallery/1.jpg" />
-                                <p class="title display_name">厂房一景</p>
-                            </div>
-                        </div>
-                        
-                        <!-- single image -->
-                        <div class="span3 img-container">
-                            <div class="img-box">
-                                <span class="icon edit">
-                                    <i class="gallery-edit"></i>
-                                </span>
-                                <span class="icon trash">
-                                    <i class="gallery-trash"></i>
-                                </span>
-                                <img src="img/gallery/2.jpg" />
-                                <p class="title display_name">新产品图片1</p>
-                            </div>
-                        </div>
-
-                        <!-- new image button -->
-                        <div class="span3 new-img">
-                            <img src="img/new-gallery-img.png" />
-                        </div>
-                        
-                        <!-- edit image pop up -->
-                        <div class="popup hide">
-                            <div class="pointer">
-                                <div class="arrow"></div>
-                                <div class="arrow_border"></div>
-                            </div>
-                            <i class="close-pop table-delete"></i>
-                            <h5>编辑图片</h5>
-                            <input type="text" class="inline-input popup_display_name" placeholder="显示名" />
-                            <div class="description">
-                                <h6>描述</h6>
-                                <textarea></textarea>
-                                <input type="submit" value="保存" class="btn-glow primary" />
-                            </div>
-                        </div>
-
-
-                        
-
-                    </div>
-                </div>
-                <!-- end gallery wrapper -->
-
-                <!-- blank state -->
-                 <div class="no-gallery">
-                    <div class="row-fluid header">
-                        <h3>基本信息管理</h3>
-                    </div>
-                    <div class="left">
-                    	<div><input type="text" class="inline-input" placeholder="咨询订购热线" /></div>
-                    	<div><input type="text" class="inline-input" placeholder="电子邮箱" /></div>
-                        <div><a class="btn-glow primary">保存</a></div>
-                    </div>
-                </div>
-                <!-- end blank state -->
-            </div>
+            	<div class="no-gallery">
+	                <div class="row-fluid header">
+	                    <h3>公司简介页面编辑</h3>
+	                </div>
+	                <div class="left">
+	                	<div class="description">
+	                        <h6>公司简介描述</h6>
+	                        <textarea rows="10" style="width:500px;"></textarea>
+	                    </div>
+	                    <input type="submit" value="保存" class="btn-glow primary" />
+                	</div>
+            	</div>
+            
+            	<div class="no-gallery">
+	                <div class="row-fluid header">
+	                    <h3>企业文化页面编辑</h3>
+	                </div>
+	                <div class="left">
+	                	<div class="description">
+	                        <h6>企业文化描述</h6>
+	                        <textarea rows="10" style="width:500px;"></textarea>
+	                    </div>
+	                    <input type="submit" value="保存" class="btn-glow primary" />
+                	</div>
+            	</div>
+            	
+            	<div class="no-gallery">
+	                <div class="row-fluid header">
+	                    <h3>产品应用页面编辑</h3>
+	                </div>
+	                <div class="left">
+	                	<div class="description">
+	                        <h6>产品应用描述</h6>
+	                        <textarea rows="10" style="width:500px;"></textarea>
+	                    </div>
+	                    <input type="submit" value="保存" class="btn-glow primary" />
+                	</div>
+            	</div>
+            
         </div>
     </div>
     <!-- end main container -->
