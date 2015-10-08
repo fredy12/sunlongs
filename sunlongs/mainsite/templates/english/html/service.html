@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://www.metinfo.cn/demo/m1511/309/service/service24.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="renderer" content="webkit">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>售后服务-机械设备公司网站模板|机械设备企业网站模板-机械设备</title>
+<meta name="description" content="公司一贯坚持&quot;公开、公平、公正&quot;和平等协商、互惠互利的&quot;双赢&quot;原则，真诚与国内外客商合作。为使您在台星的商务活动更快捷、更方便、更有效率，我们成立了专门的客户服务中心。该中心隶属于公司管理，专门负责接待客户，回答客户提出的问题，帮助和引导客户进行商务活动，帮助客户与采购部、工程部、销售公司等机构取得联系；监督物质采购、工程项目和销售部门依照&quot;公开、">
+<meta name="keywords" content="机械设备公司网站模板|机械设备企业网站模板">
+<meta name="generator" content="MetInfo 5.3.1">
+<link href="http://www.metinfo.cn/demo/m1511/309/favicon.ico" rel="shortcut icon">
+<link rel="stylesheet" type="text/css" href="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/metinfo_ui.css" id="metuimodule" data-module="1">
+<link rel="stylesheet" type="text/css" href="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/metinfo.css">
+<script src="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/jQuery1.7.2.js" type="text/javascript"></script>
+<script src="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/metinfo_ui.js" type="text/javascript"></script>
+<script src="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/ch.js" type="text/javascript"></script>
+<!--[if IE]>
+<script src="../public/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<style>
+.main-banner, .main-banner ul, .main-banner li, .main-banner li span, .main-banner li a {height:400px; min-height:200px;}
+header {  }
+</style>
+</head>
+<body>
+    <header>
+		<div class="head-top float-fix">
+
+			<h1 class="top-logo" style="font-size:40px;">
+				<a href="" title="{{ company.short_name }}" id="web_logo">
+					 <img src="{{ logo_image.image }}" alt="{{ company.short_name }}" title="{{ company.short_name }}" style="margin:25px 0 0 0px;">
+				</a>
+			</h1>
+
+			<ul class="top-nav">
+				<li><a href="#" onclick="addFavorite(&quot;Your Web Browser is not support, please do it by yourself!&quot;);" style="cursor:pointer;" title="Bookmark">Bookmark</a><span>|</span><a href="/cn/index.html">简体中文</a></li>
+				<li>	
+					<dl class="top-nav-tel">
+						<dt>TEL</dt><dd>{{ company.contact_num }}</dd>
+					</dl>				
+				</li>
+				<li></li>
+			</ul>
+		</div>
+		<nav class="head-nav">
+			<input type="hidden" id="navDownId" value="0">
+			<ul id="headNav">		
+				<li><a href="index.html" class="head-nav-list1" id="nav_0" title="Home" target="_self">HOME</a></li>	
+	
+
+				<li>
+					<div><a href="company.html" class="head-nav-list1" id="nav_1" title="About Us" target="_self">ABOUT US</a></div>
+	
+					<dl>
+	
+						<dd>
+							<a href="company.html" class="head-nav-list2" id="nav_7" title="Company Introduction" target="_self">Company Introduction</a>
+						</dd>
+	
+						<dd>
+							<a href="culture.html" class="head-nav-list2" id="nav_8" title="Corporate Culture" target="_self">Corporate Culture</a>
+						</dd>
+	
+						<dd>
+							<a href="application.html" class="head-nav-list2" id="nav_9" title="Product Application" target="_self">Product Application</a>
+						</dd>
+	
+						<dd>
+							<a href="certificate.html" class="head-nav-list2" id="nav_11" title="Certification" target="_self">Certificate</a>
+						</dd>
+							
+					</dl>
+						
+				</li>
+
+	
+
+				<li>
+					<div><a href="product.html" class="head-nav-list1" id="nav_2" target="_self" title="Product Introduction">PRODUCT</a></div>
+	
+					<dl style="display: none;">
+	
+						{% for product_type in product_types %}
+						<dd>
+							<a href="product.html?type_id={{product_type.id}}" class="head-nav-list2" id="nav_12" target="_self" title="{{product_type.name}}">{{product_type.name}}</a>
+						</dd>
+						{% endfor %}
+					</dl>
+						
+				</li>
+
+	
+
+				<li>
+					<div><a href="news.html" class="head-nav-list1" id="nav_3" title="News" target="_self">NEWS</a></div>
+	
+					<dl>
+	
+						<dd>
+							<a href="news.html" class="head-nav-list2" id="nav_19" title="News" target="_self">News</a>
+						</dd>
+							
+					</dl>
+						
+				</li>
+
+	
+	
+				<li>
+					<div><a href="contact.html" class="head-nav-list1" id="nav_4" title="Contact Us" target="_self">CONTACTS</a></div>
+	
+					<dl>
+	
+						<dd>
+							<a href="contact.html" class="head-nav-list2" id="nav_20" title="Contact Us" target="_self">Contact Us</a>
+						</dd>
+							
+					</dl>
+						
+				</li>
+
+			</ul>
+		</nav>
+		<div class="head-search" id="headSearch" data-text="Search product..."><form method="POST" name="myform1" action="" target="_self"><input type="hidden" name="lang" value="cn">&nbsp;<input type="hidden" name="searchtype" value="">&nbsp;<span class="navsearch_input"><label style="color: rgb(153, 153, 153);">Search product...</label><input type="text" name="searchword" size="20"></span>&nbsp;<input class="searchimage" type="image" src="images/ico_head_btnsearch.png"></form></div>
+	</header>
+		
+	<div id="flashBanner">
+        <div class="flicking-con"></div>
+		<div class="main-banner">
+			<ul class="list-none" style="overflow: visible;">	
+
+
+
+				<li style="float: none; display: block; position: absolute; top: 0px; left: 0px; width: 1349px;"><a href="" title=""><span class="img-span" style="background-image: url(&#39;../upload/201504/1430192557.jpg&#39;);"></span></a></li>
+
+
+				<li style="float: none; display: block; position: absolute; top: 0px; left: 1349px; width: 1349px;"><a href="" title=""><span class="img-span" style="background-image: url(&#39;../upload/201504/1430194435.jpg&#39;);"></span></a></li>
+
+			</ul>
+			<a href="javascript:;" id="btn_prev" style="overflow: visible; display: none;"></a>
+			<a href="javascript:;" id="btn_next" style="overflow: visible; display: none;"></a>
+		</div>
+	</div>
+
+		
+
+<div class="inside-page">
+
+    <div class="page-sidebar" id="pageSidebar">
+		<div class="page-sidebar-title">				
+			<div class="sidebar-title-inner">
+				<h2>客户服务</h2>
+					
+			</div>												
+		</div>	
+		<div class="page-sidebar-list" id="sidebarList">			
+			<dl class="list-none navnow sidebar-dl-current"><dt id="part2_24" class="on"><a href="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备.htm" title="售后服务" class="zm bgnone"><span>售后服务</span></a></dt></dl><dl class="list-none navnow"><dt id="part2_26"><a href="http://www.metinfo.cn/demo/m1511/309/order/" title="产品订购" class="zm"><span>产品订购</span></a></dt></dl><dl class="list-none navnow"><dt id="part2_25"><a href="http://www.metinfo.cn/demo/m1511/309/service/service25.html" title="联系我们" class="zm bgnone"><span>联系我们</span></a></dt></dl>				
+		</div>
+		
+		<div class="page-sidebar-info active editor"><br><div class="clear"></div></div> 	
+		
+	</div>
+		
+    <div class="page-content" id="pageContent">
+	    <div class="page-content-title float-fix">
+	    	<h3>售后服务</h3>
+	    	<div class="position">当前位置：<a href="http://www.metinfo.cn/demo/m1511/309/" title="首页">首页</a> &gt; <a href="http://www.metinfo.cn/demo/m1511/309/service/">客户服务</a> &gt; <a href="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备.htm">售后服务</a></div>
+	    </div>
+
+        <div class="editor active" id="showtext">
+		    <div><p>
+	&nbsp;</p>
+<div>
+	<img src="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/20130815_163251.jpg" style="width: 401px; height: 248px; margin: 8px; float: right;" alt="图片关键词">&nbsp; &nbsp; &nbsp; &nbsp;公司一贯坚持"公开、公平、公正"和平等协商、互惠互利的"双赢"原则，真诚与国内外客商合作。<span style="line-height: 2;">为使您在台星的商务活动更快捷、更方便、更有效率，我们成立了专门的客户服务中心。该中心隶属于公司管理，专门负责接待客户，回答客户提出的问题，帮助和引导客户进行商务活动，帮助客户与采购部、工程部、销售公司等机构取得联系；监督物质采购、工程项目和销售部门依照"公开、公平、公正"和"双赢"的原则与您从事商务谈判。执行服务电话。</span></div>
+<div>
+	&nbsp;</div>
+<div>
+	&nbsp; &nbsp; &nbsp; 公司工作理念是以客户为中心。围绕此中心形成的合理科学的体系包括三个基本成份：我们的减速电机、我们的电子产品和我们的服务。这些因素互相配合形成了一个整体，从而成为在任何时候解决最棘手传动问题的基础。同时，我们综合性的服务体系保障了麦奇电机产品在全球范围内的使用。</div>
+<div>
+	&nbsp;</div>
+<div>
+	&nbsp; &nbsp; &nbsp; &nbsp;公司各项服务都是以“客户”为中心的，客户是我们的服务核心。<span style="line-height: 2;">当然,我们对于"为客户服务"的理解远远超出传动装置的组装和备件的提供。在每个组装厂,均有专业应用工程师为客户提供咨询。正因为我们的应用工程师掌握着全面的应用技术，为世界各地的客户解答传动技术的各种问题，才使麦奇电机得以良好与运转。</span></div>
+<div>
+	&nbsp;</div>
+<div>
+	&nbsp; &nbsp; &nbsp; 任何时候当您和本公司合作有不满意或者认为本公司员工在和您的商务会谈、处理商务关系有不公正的行为时，我们都诚恳地希望您能将您的感受和意见告诉我们的客服中心，请您相信我们一定会把您的意见和建议处理好。</div>
+<div>
+	&nbsp;</div>
+<div>
+	- 提供从机械产品到电子产品的全套服务</div>
+<div>
+	- 服务中心与装配厂，提供24 小时热线服务</div>
+<div>
+	- 服务机构遍布世界各地</div>
+<div>
+	- 提供项目规划、驱动选择、 维修、培训等全方位支持</div>
+<div>
+	- 在所有项目阶段提供软件、 技术文件以及技术建议等支持</div>
+<div>
+	&nbsp;</div>
+</div>
+			<div class="clear"></div>
+		</div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+<footer>
+	<div class="foot-inner float-fix" id="footInner">
+
+		<div class="foot-left" style="height: 83px;">
+			<div class="left-align-fix" style="margin-bottom: -35px;"></div>
+			<div class="foot-left-inner">
+				<p><img src="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/1430195194.png" id="foot-left-logo" alt="机械设备"></p>
+				<div>机械设备公司</div>	
+			</div>		
+		</div>
+
+		<div class="foot-right">
+		
+			<p class="foot-nav">
+				<a href="http://www.metinfo.cn/demo/m1511/309/company/company7.html" title="公司简介">公司简介</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/company/company8.html" title="企业文化">企业文化</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/company/company10.html" title="销售网络">销售网络</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/company/company11.html" title="资质认证">资质认证</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/service/service25.html" title="联系我们">联系我们</a>
+			</p>
+				
+			<div class="foot-copyright">
+				<p>机械设备 版权所有 2008-2012 湘ICP备8888888    本页面内容为网站演示数据，前台页面内容都可以在后台修改。</p>
+				<p></p>
+				<!--以下是版权信息，购买商业授权之后方可去除！-->
+				<p>
+					Powered&nbsp;by&nbsp;<a href="http://www.metinfo.cn/" target="_blank" title="企业网站管理系统">MetInfo&nbsp;5.3.1</a>
+					©2008-2015&nbsp;
+					<a href="http://www.metinfo.cn/" target="_blank" title="企业网站建设">www.metinfo.cn</a>
+				</p>
+				<!--版权信息结束-->	
+			</div>
+			
+		</div>
+	</div>	
+</footer>
+<script src="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/banner.js" type="text/javascript"></script>
+<script src="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/marquee.js" type="text/javascript"></script>
+<script src="./售后服务-机械设备公司网站模板 机械设备企业网站模板-机械设备_files/fun.inc.js" type="text/javascript"></script>
+
+
+</body></html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>双龙泵业 Admin - Gallery</title>
+    
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+    <!-- bootstrap -->
+    <link href="css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+	<!-- libraries -->
+	<link href="css/lib/font-awesome.css" type="text/css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/elements.css" />
+    <link rel="stylesheet" type="text/css" href="css/icons.css" />
+
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="css/compiled/form-showcase.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/compiled/gallery.css" type="text/css" media="screen" />
+
+    <!-- open sans font -->
+    <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+
+    <!-- navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a class="brand" href="index.html"><img src="img/logo.png" /></a>
+
+            <ul class="nav pull-right">                
+                <li class="hidden-phone">
+                    <input class="search" type="text" />
+                </li>
+                <li class="notification-dropdown hidden-phone">
+                    <a href="#" class="trigger">
+                        <i class="icon-warning-sign"></i>
+                        <span class="count">8</span>
+                    </a>
+                    <div class="pop-dialog">
+                        <div class="pointer right">
+                            <div class="arrow"></div>
+                            <div class="arrow_border"></div>
+                        </div>
+                        <div class="body">
+                            <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
+                            <div class="notifications">
+                                <h3>You have 6 new notifications</h3>
+                                <a href="#" class="item">
+                                    <i class="icon-signin"></i> New user registration
+                                    <span class="time"><i class="icon-time"></i> 13 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-signin"></i> New user registration
+                                    <span class="time"><i class="icon-time"></i> 18 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-envelope-alt"></i> New message from Alejandra
+                                    <span class="time"><i class="icon-time"></i> 28 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-signin"></i> New user registration
+                                    <span class="time"><i class="icon-time"></i> 49 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-download-alt"></i> New order placed
+                                    <span class="time"><i class="icon-time"></i> 1 day.</span>
+                                </a>
+                                <div class="footer">
+                                    <a href="#" class="logout">View all notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-dropdown hidden-phone">
+                    <a href="#" class="trigger">
+                        <i class="icon-envelope-alt"></i>
+                    </a>
+                    <div class="pop-dialog">
+                        <div class="pointer right">
+                            <div class="arrow"></div>
+                            <div class="arrow_border"></div>
+                        </div>
+                        <div class="body">
+                            <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
+                            <div class="messages">
+                                <a href="#" class="item">
+                                    <img src="img/contact-img.png" class="display" />
+                                    <div class="name">Alejandra Galván</div>
+                                    <div class="msg">
+                                        There are many variations of available, but the majority have suffered alterations.
+                                    </div>
+                                    <span class="time"><i class="icon-time"></i> 13 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/contact-img2.png" class="display" />
+                                    <div class="name">Alejandra Galván</div>
+                                    <div class="msg">
+                                        There are many variations of available, have suffered alterations.
+                                    </div>
+                                    <span class="time"><i class="icon-time"></i> 26 min.</span>
+                                </a>
+                                <a href="#" class="item last">
+                                    <img src="img/contact-img.png" class="display" />
+                                    <div class="name">Alejandra Galván</div>
+                                    <div class="msg">
+                                        There are many variations of available, but the majority have suffered alterations.
+                                    </div>
+                                    <span class="time"><i class="icon-time"></i> 48 min.</span>
+                                </a>
+                                <div class="footer">
+                                    <a href="#" class="logout">View all messages</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
+                        {{ account_name }}
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personal-info.html">个人信息</a></li>
+                    </ul>
+                </li>
+                <li class="settings hidden-phone">
+                    <a href="personal-info.html" role="button">
+                        <i class="icon-cog"></i>
+                    </a>
+                </li>
+                <li class="settings hidden-phone">
+                    <a href="signin.html" role="button">
+                        <i class="icon-share-alt"></i>
+                    </a>
+                </li>
+            </ul>            
+        </div>
+    </div>
+    <!-- end navbar -->
+
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li>
+                <a href="../index.html">
+                    <i class="icon-home"></i>
+                    <span>总览</span>
+                </a>
+            </li>
+            <li>
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-edit"></i>
+                    <span>信息编辑</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="base.html">基本信息</a></li>
+                    <li><a href="company.html">公司信息</a></li>
+                    <li><a href="product.html">产品信息</a></li>
+                </ul>
+            </li>
+            <li>
+            	<a href="../news.html">
+            		<i class="icon-volume-up"></i>
+            		<span>发布新闻</span>
+            	</a>
+            </li>
+            <li>
+                <a href="../gallery.html">
+                    <i class="icon-picture"></i>
+                    <span>素材管理</span>
+                </a>
+            </li>
+            <li>
+                <a href="../email.html">
+                    <i class="icon-th-large"></i>
+                    <span>查收邮件</span>
+                </a>
+            </li>
+            <li>
+                <a href="../setting.html">
+                    <i class="icon-cog"></i>
+                    <span>设置</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+
+	<!-- main container -->
+    <div class="content">
+        
+        <!-- settings changer -->
+        <div class="skins-nav">
+            <a href="#" class="skin first_nav selected">
+                <span class="icon"></span><span class="text">Default</span>
+            </a>
+            <a href="#" class="skin second_nav" data-file="css/skins/dark.css">
+                <span class="icon"></span><span class="text">Dark skin</span>
+            </a>
+            <a href="#" class="skin second_nav">
+                <span class="icon"></span><span class="text">Black skin</span>
+            </a>
+        </div>
+        
+        <div class="container-fluid">
+        	<br>
+        	<a href="product_type.html?lang=chinese" style="float:right;">管理产品类型</a>
+			<div id="pad-wrapper" class="gallery">
+            	<div class="gallery">
+                <!-- gallery wrapper -->
+	                <div class="gallery-wrapper">
+	                 	<div class="row-fluid header">
+	                    	<h4>产品信息：({% ifequal lang "chinese" %}中文产品{% endifequal %}{% ifequal lang "english" %}英文产品{% endifequal %})
+		                    	<div class="ui-select">
+					               	<form class="select_product_type_form" enctype="multipart/form-data" method="post" action="">
+					               		<input type="text" style="display:none;" name="lang" value='{% if lang == "chinese" %}chinese{% else %}english{% endif %}'>
+					                    <select name="type" class="product_type_select">
+					                        <option value="-1">所有产品</option>
+					                        {% if product_types %}
+					                        	{% for product_type in product_types %}
+					                         <option {%if select_type_id == product_type.id %}selected="selected"{% endif %} value="{{ product_type.id }}">{{ product_type.name }}</option>
+					                        	{% endfor %}
+					                        {% endif %}
+					                    </select>
+					            	</form>
+					            </div>
+					            {% ifequal lang "chinese" %}
+						        <a href="product.html?lang=english">切换到英文产品</a>
+						        {% endifequal %}
+						        {% ifequal lang "english" %}
+						        <a href="product.html?lang=chinese">切换到中文产品</a>
+						        {% endifequal %}
+				            </h4>
+				            <input type="button" class="btn-glow primary new_product_btn" style="float:right;" value="添加新产品" />
+	               		</div>
+	               		<div class="row new_product_div" style="display:none;text-align:left;padding-left:200px;padding-top:20px;background-color:#F7F7F7;">
+	               			<form class="form-inline new_product_form" enctype="multipart/form-data" method="post" action="edit_product">
+	                            <div style="margin-top: 5px;margin-left:20px;font-weight:bold;font-size:15px;">
+	                            	<span>添加新产品信息</span>
+	                            </div>
+	                            <div style="margin-top: 5px;">
+				                    <small class="small span1">产品类型</small>
+				                    <div class="ui-select">
+					                    <select name="type">
+					                        {% if product_types %}
+					                        	{% for product_type in product_types %}
+					                         	<option value="{{ product_type.id }}">{{ product_type.name }}</option>
+					                        	{% endfor %}
+					                        {% endif %}
+					                    </select>
+				                    </div>
+				                </div>
+				                <div style="margin-top: 5px;display:none; ">
+				                    <small class="small span1">语言</small>
+				                    <input type="text" class="inline-input span4" name="lang" value="{{ lang }}" readonly />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">产品名称</small>
+				                    <input type="text" class="inline-input span4" name="name" placeholder="输入产品名称" />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">产品图片</small>
+				                    <input type="file" class="inline-input span4" name="pic"  />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">型号</small>
+				                    <input type="text" class="inline-input span4" name="model" placeholder="输入产品型号" />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">功率(kw)</small>
+				                    <input type="text" class="inline-input span4" name="power" placeholder="输入产品功率" />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">水量(m3/h)</small>
+				                    <input type="text" class="inline-input span4" name="flow" placeholder="输入产品水量" />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">扬程(m)</small>
+				                    <input type="text" class="inline-input span4" name="head" placeholder="输入产品扬程" />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">电压(V)</small>
+				                    <input type="text" class="inline-input span4" name="voltage" placeholder="输入产品电压" />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">规格(inch)</small>
+				                    <input type="text" class="inline-input span4" name="outlet" placeholder="输入产品规格" />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">转速(r/min)</small>
+				                    <input type="text" class="inline-input span4" name="speed" placeholder="输入产品转速"/>
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">EFF(%)</small>
+				                    <input type="text" class="inline-input span4" name="eff" placeholder="输入产品EFF" />
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">产品简介</small>
+				                    <textarea name="abstract" rows="3" class="span4"></textarea>
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">产品特点</small>
+				                    <textarea name="feature" rows="3" class="span4"></textarea>
+				                </div>
+				                <div style="margin-top: 5px;">
+				                    <small class="small span1">产品详细介绍</small>
+				                    <textarea name="introduction" rows="5" class="span4"></textarea>
+				                </div>
+				                <div style="margin-top: 15px;margin-left:240px;">
+				                	<input type="submit" value="提交" class="btn btn-success" />
+				                </div>
+				                
+			               </form>
+	               		</div>
+	                    <div class="row gallery-row">
+	                        {% if products %}
+								{% for product in products %}
+								<div class="product_item">
+									<div class="span3 img-container">
+			                            <div class="img-box">
+		                                	<span class="icon edit product_edit_btn">
+		                                		<span class="hidden" id="product_popup_{{product.id}}_edit">product_popup_{{ product.id }}</span>
+		                                    	<i class="gallery-edit"></i>
+		                                	</span>
+			                                <form class="delete_product_form" enctype="multipart/form-data" method="post" action="delete_product">
+				                				<input type="text" name="lang" value="{{ lang }}" style="display:none;" />
+				                                <input type="text" name="id" value="{{product.id}}" style="display:none;"/>
+				                                <span class="icon trash product_delete_btn">
+				                                    <i class="gallery-trash"></i>
+				                                </span>
+			                                </form>
+			                                <img src="{{ product.pic }}" />
+			                                <p class="title display_name">{{ product.name }}</p>
+			                            </div>
+			                        </div>
+						        </div>
+								{% endfor %}
+							{% endif %}
+
+	                      </div>
+	                    </div>
+                	</div>
+                <!-- end gallery wrapper -->
+	            </div>
+	    </div>
+	    
+    </div>
+    <!-- end main container -->
+
+	<!-- popups -->
+	{% if products %}
+		{% for product in products %}
+
+	<div class="gallery">
+		<div class="popup product_popup" id="product_popup_{{ product.id }}" style="position:fixed;width:500px;height:500px;display:none;overflow:auto;">
+        	<form class="form-inline edit_product_form" enctype="multipart/form-data" method="post" action="edit_product">
+             	<i class="close-pop table-delete"></i>
+             	<div style="margin-top:5px;margin-left:15px;font-weight:bold;">
+             		<span>编辑产品信息</span>
+             	</div>
+	            <div style="margin-top: 5px;display:none; ">
+	            	<small class="small span1">语言</small>
+	            	<input type="text" class="inline-input span4" name="lang" value="{{ lang }}" readonly />
+	            </div>
+                <div style="margin-top: 5px; display:none;">
+                   	<small class="small span1">产品ID</small>
+                   	<input type="text" class="inline-input span4" name="id" value="{{ product.id }}" readonly/>
+               	</div>
+               	<div style="margin-top: 5px; display:none;">
+                   	<small class="small span1">产品类型ID</small>
+                   	<input type="text" class="inline-input span4" name="type" value="{{ product.type.id }}" readonly/>
+               	</div>
+                   	<div style="margin-top: 5px; ">
+                   	<small class="small span1">产品类型</small>
+                   	<input type="text" class="inline-input span4" value="{{ product.type.name }}" readonly/>
+               	</div>
+               	<div style="margin-top: 5px;">
+                   	<small class="small span1">产品名称</small>
+                   	<input type="text" class="inline-input span4" name="name" value="{{ product.name }}" />
+               	</div>
+               	<div style="margin-top: 5px;">
+                   	<small class="small span1">产品图片</small>
+                   	<div class="image-upload">
+					    <label for="product_pic_upload_{{product.id}}" class="do_preview_img">
+					        <img height="60px" width="60px" class="inline preview_img" src="{% if product.pic %}{{ product.pic }}{% else %}img/new-gallery-img.png{% endif %}" />
+					    </label>
+						<input id="product_pic_upload_{{product.id}}" class="upload_img" type="file" name="pic" value="{{ product.pic }}" style="display:none;"/>
+					</div>
+               	</div>
+               	<div style="margin-top: 5px;">
+                   	<small class="small span1">型号</small>
+                   	<input type="text" class="inline-input span4" name="model" value="{{ product.model }}" />
+               	</div>
+               	<div style="margin-top: 5px;">
+                   	<small class="small span1">功率(kw)</small>
+                   	<input type="text" class="inline-input span4" name="power" value="{{ product.power }}" />
+               	</div>
+               <div style="margin-top: 5px;">
+                   <small class="small span1">水量(m3/h)</small>
+                   <input type="text" class="inline-input span4" name="flow" value="{{ product.flow }}" />
+               </div>
+               <div style="margin-top: 5px;">
+                   <small class="small span1">扬程(m)</small>
+                   <input type="text" class="inline-input span4" name="head" value="{{ product.head }}" />
+               </div>
+               <div style="margin-top: 5px;">
+                   <small class="small span1">电压(V)</small>
+                   <input type="text" class="inline-input span4" name="voltage" value="{{ product.voltage }}" />
+               </div>
+               <div style="margin-top: 5px;">
+                   <small class="small span1">规格(inch)</small>
+                   <input type="text" class="inline-input span4" name="outlet" value="{{ product.outlet }}" />
+               </div>
+               <div style="margin-top: 5px;">
+                   <small class="small span1">转速(r/min)</small>
+                   <input type="text" class="inline-input span4" name="speed" value="{{ product.speed }}" />
+               </div>
+               <div style="margin-top: 5px;">
+                   <small class="small span1">EFF(%)</small>
+                   <input type="text" class="inline-input span4" name="eff" value="{{ product.eff }}" />
+               </div>
+               <div style="margin-top: 5px;">
+                   <small class="small span1">产品简介</small>
+                   <textarea name="abstract" rows="3" class="span4">{{ product.abstract }}</textarea>
+               </div>
+               <div style="margin-top: 5px;">
+                   <small class="small span1">产品特点</small>
+                   <textarea name="feature" rows="3" class="span4">{{ product.feature }}</textarea>
+               </div>
+               <div style="margin-top: 5px;">
+                   <small class="small span1">产品详细介绍</small>
+                   <textarea name="introduction" rows="5" class="span4">{{ product.introduction }}</textarea>
+               </div>
+               <div style="margin-top: 15px;margin-left:200px;">
+               	<input type="submit" value="保存" class="btn btn-success" />
+               </div>
+             </form>
+         </div>
+     </div>
+     
+		{% endfor %}
+	{% endif %}
+	<!-- end popups -->
+
+	<!-- this page scripts -->
+    <script src="js/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/upload_preview/uploadPreview.js"></script>
+    <script>
+    $(document).ready(function() {
+    	$(".content").delegate(".product_type_select", "change", function(){
+    		$(".select_product_type_form").submit();
+    	});
+    	
+    	
+    	$(".content").delegate(".new_product_btn", "click", function(){
+    		$(".new_product_div").slideToggle(500);
+    	});
+    	
+    	$(".content").delegate(".product_edit_btn", "click", function(){
+    		$("#"+$(this).find("span").text()).show();
+    	});
+    	$(".gallery").delegate(".close-pop", "click", function(){
+    		$(this).parents(".product_popup").hide();
+    	});
+    	
+    	$(".product_popup").each(function(){
+    		$(this).css({'left': ($(window).width()-$(this).width())/2, 'top': ($(window).height()-$(this).height())/2});
+    	});
+    	
+    	$(".content").delegate(".product_delete_btn", "click", function(){
+    		$(this).parents(".delete_product_form").submit();
+    	});
+
+    	$(".upload_img").uploadPreview({ ImgClass:"preview_img", Width: 120, Height: 120 });
+    	
+    });
+    </script>
+</body>
+</html>

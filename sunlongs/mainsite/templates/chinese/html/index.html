@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://www.metinfo.cn/demo/m1511/309/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="renderer" content="webkit">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>{{ company.full_name }}</title>
+<link href="http://www.metinfo.cn/demo/m1511/309/favicon.ico" rel="shortcut icon">
+<link rel="stylesheet" type="text/css" href="css/metinfo_ui.css" id="metuimodule" data-module="10001">
+<link rel="stylesheet" type="text/css" href="css/metinfo.css">
+<script src="js/jQuery1.7.2.js" type="text/javascript"></script>
+<script src="js/metinfo_ui.js" type="text/javascript"></script>
+<script src="js/ch.js" type="text/javascript"></script>
+<!--[if IE]>
+<script src="public/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<style>
+.main-banner, .main-banner ul, .main-banner li, .main-banner li span, .main-banner li a {height:400px; min-height:200px;}
+header {  }
+</style>
+</head>
+<body>
+    <header>
+		<div class="head-top float-fix">
+
+			<h1 class="top-logo" style="font-size:40px;">
+				<a href="" title="{{ company.short_name }}" id="web_logo">
+					 <img src="{{ logo_image.image }}" alt="{{ company.short_name }}" title="{{ company.short_name }}" style="margin:25px 0 0 0px;">
+				</a>
+			</h1>
+
+			<ul class="top-nav">
+				<li><a href="#" onclick="addFavorite(&quot;浏览器不支持此功能，请手动设置！&quot;);" style="cursor:pointer;" title="收藏本站">收藏本站</a><span>|</span><a class="fontswitch" id="StranLink" href="javascript:StranBody()">繁体中文</a><span>|</span><a href="/en/index.html">English</a></li>
+				<li>	
+					<dl class="top-nav-tel">
+						<dt>资讯热线</dt><dd>{{ company.contact_num }}</dd>
+					</dl>				
+				</li>
+				<li></li>
+			</ul>
+		</div>
+		<nav class="head-nav">
+			<input type="hidden" id="navDownId" value="0">
+			<ul id="headNav">		
+				<li><a href="index.html" class="head-nav-list1" id="nav_0" title="首页" target="_self">首页</a></li>	
+	
+
+				<li>
+					<div><a href="company.html" class="head-nav-list1" id="nav_1" title="关于公司" target="_self">关于公司</a></div>
+	
+					<dl>
+	
+						<dd>
+							<a href="company.html" class="head-nav-list2" id="nav_7" title="公司简介" target="_self">公司简介</a>
+						</dd>
+	
+						<dd>
+							<a href="culture.html" class="head-nav-list2" id="nav_8" title="企业文化" target="_self">企业文化</a>
+						</dd>
+	
+						<dd>
+							<a href="application.html" class="head-nav-list2" id="nav_9" title="产品应用" target="_self">产品应用</a>
+						</dd>
+	
+						<dd>
+							<a href="certificate.html" class="head-nav-list2" id="nav_11" title="资质认证" target="_self">资质认证</a>
+						</dd>
+							
+					</dl>
+						
+				</li>
+
+	
+
+				<li>
+					<div><a href="product.html" class="head-nav-list1" id="nav_2" target="_self" title="产品展示">产品展示</a></div>
+	
+					<dl style="display: none;">
+	
+						{% for product_type in product_types %}
+						<dd>
+							<a href="product.html?type_id={{product_type.id}}" class="head-nav-list2" id="nav_12" target="_self" title="{{product_type.name}}">{{product_type.name}}</a>
+						</dd>
+						{% endfor %}
+					</dl>
+						
+				</li>
+
+	
+
+				<li>
+					<div><a href="news.html" class="head-nav-list1" id="nav_3" title="新闻中心" target="_self">新闻中心</a></div>
+	
+					<dl>
+	
+						<dd>
+							<a href="news.html" class="head-nav-list2" id="nav_19" title="新闻中心" target="_self">新闻中心</a>
+						</dd>
+							
+					</dl>
+						
+				</li>
+
+	
+	
+				<li>
+					<div><a href="contact.html" class="head-nav-list1" id="nav_4" title="联系我们" target="_self">联系我们</a></div>
+	
+					<dl>
+	
+						<dd>
+							<a href="contact.html" class="head-nav-list2" id="nav_20" title="联系我们" target="_self">联系我们</a>
+						</dd>
+							
+					</dl>
+						
+				</li>
+
+			</ul>
+		</nav>
+		<div class="head-search" id="headSearch" data-text="请输入产品的关键词"><form method="POST" name="myform1" action="http://tmp.metinfo.cn/m1511/309/search/search.php?lang=cn" target="_self"><input type="hidden" name="lang" value="cn">&nbsp;<input type="hidden" name="searchtype" value="">&nbsp;<span class="navsearch_input"><label style="color: rgb(153, 153, 153);">请输入产品的关键词</label><input type="text" name="searchword" size="20"></span>&nbsp;<input class="searchimage" type="image" src="images/ico_head_btnsearch.png"></form></div>
+	</header>
+		
+	<div id="flashBanner">
+        <div class="flicking-con"></div>
+		<div class="main-banner">
+			<ul class="list-none" style="overflow: visible;">	
+				{% for image in rolling_images %}
+				<li style="float: none; display: block; position: absolute; top: 0px; left: 0px; width: 1349px;"><a href="" title=""><span class="img-span" style="background-image: url(&#39;{{ image.image }}&#39;);"></span></a></li>
+				{% endfor %}
+			</ul>
+			<a href="javascript:;" id="btn_prev" style="overflow: visible; display: inline; opacity: 0.4217827674798844;"></a>
+			<a href="javascript:;" id="btn_next" style="overflow: visible; display: inline; opacity: 0.4217827674798844;"></a>
+		</div>
+	</div>
+
+		
+
+<div class="main-block float-fix">
+
+	<!-- 
+	<div class="main-block-left block-slide-img" id="slideImg">
+		<ul>
+			{% for product in products %}
+			<li style="display: list-item;">
+				<a href="product_detail.html?id={{product.id}}" title="{{product.name}}">
+				<p><img src="{{product.pic}}" width="330" height="200" alt="{{product.name}}"></p>
+					<h4 class="slide-img-title">{{product.name}}</h4>
+				</a>				
+			</li>
+			{% endfor %}
+
+		</ul>
+		<i class="slide-btn-l slide-btn-disabled"></i><i class="slide-btn-r"></i>
+	</div>
+	-->
+	
+	<div class="main-block-right">
+	
+		<div class="block-slide-news" id="slideNews">		
+			<ul style="margin-top: -0.2263389484662528px;">
+				{% for news in all_news %}
+				<li>
+					<a href="news_detail.html?id={{news.id}}" title="{{news.title}}" target="_self">{{news.title}}</a><span style="float:right"><i class="ico-uptime"></i>{{news.create_time|date:'Y年m月d日 H:i'}}</span>
+				</li>
+				{% endfor %}
+			</ul>					
+			<i class="slide-btn-l" id="newsSlidePrev"></i><i class="slide-btn-r" id="newsSlideNext"></i>
+		</div>
+		
+		<div class="block-text-paragraph" id="blockTextPara" style="height: 151px;">
+			<h3 class="paragraph-title">
+				<span>
+				公司简介
+				</span>			
+				<a href="company.html" title="公司详细介绍" target="_self">详细介绍&gt;&gt;</a>
+			</h3>
+			<div class="paragraph-content">
+				<span style="line-height: 2;"><img alt="" src="images/20130815_165321.jpg" style="width: 150px; height: 100px; float: left; margin: 1px 8px;">{{company.abstract}}</span>
+			</div>
+		</div>
+		
+	</div>	
+</div>
+
+<div class="main-photos">
+	<div class="main-photos-inner">
+		<h2>
+			产品展示
+		</h2>
+		<nav id="photoNavBox">
+			{% for product_type in product_types %}
+			<a class="photo-show-nav" href="#product_type_{{product_type.id}}" title="{{product_type.name}}">{{product_type.name}}</a>
+			{% endfor %}
+		</nav>
+		<div class="photos-inner-wrap" id="photosWrap">
+			{% for product_divide in product_divides %}
+			<ul class="photo-show-content" id="product_type_{{product_divide.product_type.id}}" style="display: none; position: relative; overflow: hidden;"><li style="position: relative; width: 9999px; height: auto;">
+				{% for product in product_divide.products %}
+				<a href="product_detail.html?id={{product.id}}" title="{{product.name}}" target="_self" style="width: 230px; float: left;">
+					<span class="order-mark">{{ forloop.counter }}</span>
+					<img src="{{product.pic}}" width="230" height="136" data-imgurl="{{product.pic}}" alt="{{product.name}}">										
+					<h5>{{product.name}}</h5>
+					<!-- <p class="photo-update-time">
+						<i class="ico-uptime"></i>2015-04-28
+					</p>-->
+				</a>
+				{% endfor %}
+			</li></ul>
+			{% endfor %}
+				
+		</div>	
+		<i class="slide-btn-l slide-btn-disabled" id="photoPrev" style="margin-top: 4px;"></i><i class="slide-btn-r" id="photoNext" "="" style="margin-top: 4px;"></i>
+	</div>	
+</div>
+
+<footer>
+	<div class="foot-inner float-fix" id="footInner">
+
+		<div class="foot-left" style="height: 83px;">
+			<div class="left-align-fix" style="margin-bottom: -25px;"></div>
+			<div class="foot-left-inner">
+				<p><img src="images/7.png" id="foot-left-logo" alt="机械设备"></p>
+				<div>机械设备公司</div>	
+			</div>		
+		</div>
+
+		<div class="foot-right">
+		
+			<p class="foot-nav">
+				<a href="http://www.metinfo.cn/demo/m1511/309/company/company7.html" title="公司简介">公司简介</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/company/company8.html" title="企业文化">企业文化</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/company/company10.html" title="销售网络">销售网络</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/company/company11.html" title="资质认证">资质认证</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/service/service25.html" title="联系我们">联系我们</a>
+			</p>
+				
+			<div class="foot-copyright">
+				<p>机械设备 版权所有 2008-2012 湘ICP备8888888    本页面内容为网站演示数据，前台页面内容都可以在后台修改。</p>
+				<p></p>
+				<!--以下是版权信息，购买商业授权之后方可去除！-->
+				<p>
+					Powered&nbsp;by&nbsp;<a href="http://www.metinfo.cn/" target="_blank" title="企业网站管理系统">MetInfo&nbsp;5.3.1</a>
+					©2008-2015&nbsp;
+					<a href="http://www.metinfo.cn/" target="_blank" title="企业网站建设">www.metinfo.cn</a>
+				</p>
+				<!--版权信息结束-->	
+			</div>
+			
+		</div>
+	</div>	
+</footer>
+<script src="js/banner.js" type="text/javascript"></script>
+<script src="js/marquee.js" type="text/javascript"></script>
+<script src="js/fun.inc.js" type="text/javascript"></script>
+
+
+</body></html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>双龙泵业 Admin - Gallery</title>
+    
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+    <!-- bootstrap -->
+    <link href="css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+	<!-- libraries -->
+	<link href="css/lib/font-awesome.css" type="text/css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/elements.css" />
+    <link rel="stylesheet" type="text/css" href="css/icons.css" />
+
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="css/compiled/form-showcase.css" type="text/css" media="screen" />
+
+    <!-- open sans font -->
+    <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+
+    <!-- navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a class="brand" href="index.html"><img src="img/logo.png" /></a>
+
+            <ul class="nav pull-right">                
+                <li class="hidden-phone">
+                    <input class="search" type="text" />
+                </li>
+                <li class="notification-dropdown hidden-phone">
+                    <a href="#" class="trigger">
+                        <i class="icon-warning-sign"></i>
+                        <span class="count">8</span>
+                    </a>
+                    <div class="pop-dialog">
+                        <div class="pointer right">
+                            <div class="arrow"></div>
+                            <div class="arrow_border"></div>
+                        </div>
+                        <div class="body">
+                            <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
+                            <div class="notifications">
+                                <h3>You have 6 new notifications</h3>
+                                <a href="#" class="item">
+                                    <i class="icon-signin"></i> New user registration
+                                    <span class="time"><i class="icon-time"></i> 13 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-signin"></i> New user registration
+                                    <span class="time"><i class="icon-time"></i> 18 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-envelope-alt"></i> New message from Alejandra
+                                    <span class="time"><i class="icon-time"></i> 28 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-signin"></i> New user registration
+                                    <span class="time"><i class="icon-time"></i> 49 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-download-alt"></i> New order placed
+                                    <span class="time"><i class="icon-time"></i> 1 day.</span>
+                                </a>
+                                <div class="footer">
+                                    <a href="#" class="logout">View all notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-dropdown hidden-phone">
+                    <a href="#" class="trigger">
+                        <i class="icon-envelope-alt"></i>
+                    </a>
+                    <div class="pop-dialog">
+                        <div class="pointer right">
+                            <div class="arrow"></div>
+                            <div class="arrow_border"></div>
+                        </div>
+                        <div class="body">
+                            <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
+                            <div class="messages">
+                                <a href="#" class="item">
+                                    <img src="img/contact-img.png" class="display" />
+                                    <div class="name">Alejandra Galván</div>
+                                    <div class="msg">
+                                        There are many variations of available, but the majority have suffered alterations.
+                                    </div>
+                                    <span class="time"><i class="icon-time"></i> 13 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/contact-img2.png" class="display" />
+                                    <div class="name">Alejandra Galván</div>
+                                    <div class="msg">
+                                        There are many variations of available, have suffered alterations.
+                                    </div>
+                                    <span class="time"><i class="icon-time"></i> 26 min.</span>
+                                </a>
+                                <a href="#" class="item last">
+                                    <img src="img/contact-img.png" class="display" />
+                                    <div class="name">Alejandra Galván</div>
+                                    <div class="msg">
+                                        There are many variations of available, but the majority have suffered alterations.
+                                    </div>
+                                    <span class="time"><i class="icon-time"></i> 48 min.</span>
+                                </a>
+                                <div class="footer">
+                                    <a href="#" class="logout">View all messages</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
+                        {{ account_name }}
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personal-info.html">个人信息</a></li>
+                    </ul>
+                </li>
+                <li class="settings hidden-phone">
+                    <a href="personal-info.html" role="button">
+                        <i class="icon-cog"></i>
+                    </a>
+                </li>
+                <li class="settings hidden-phone">
+                    <a href="signin.html" role="button">
+                        <i class="icon-share-alt"></i>
+                    </a>
+                </li>
+            </ul>            
+        </div>
+    </div>
+    <!-- end navbar -->
+
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li>
+                <a href="../index.html">
+                    <i class="icon-home"></i>
+                    <span>总览</span>
+                </a>
+            </li>
+            <li>
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-edit"></i>
+                    <span>信息编辑</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="base.html">基本信息</a></li>
+                    <li><a href="company.html">公司信息</a></li>
+                    <li><a href="product.html">产品信息</a></li>
+                </ul>
+            </li>
+            <li>
+            	<a href="../news.html">
+            		<i class="icon-volume-up"></i>
+            		<span>发布新闻</span>
+            	</a>
+            </li>
+            <li>
+                <a href="../gallery.html">
+                    <i class="icon-picture"></i>
+                    <span>素材管理</span>
+                </a>
+            </li>
+            <li>
+                <a href="../email.html">
+                    <i class="icon-th-large"></i>
+                    <span>查收邮件</span>
+                </a>
+            </li>
+            <li>
+                <a href="../setting.html">
+                    <i class="icon-cog"></i>
+                    <span>设置</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+
+	<!-- main container -->
+    <div class="content">
+        
+        <!-- settings changer -->
+        <div class="skins-nav">
+            <a href="#" class="skin first_nav selected">
+                <span class="icon"></span><span class="text">Default</span>
+            </a>
+            <a href="#" class="skin second_nav" data-file="css/skins/dark.css">
+                <span class="icon"></span><span class="text">Dark skin</span>
+            </a>
+            <a href="#" class="skin second_nav">
+                <span class="icon"></span><span class="text">Black skin</span>
+            </a>
+        </div>
+        
+        <div class="container-fluid">
+            <div id="pad-wrapper" class="form-page">
+                <div class="row-fluid form-wrapper">
+                   	<div class="span8 column">
+                   		<div class="row-fluid header">
+		                    <h4>公司信息编辑：</h4>
+		                    {% ifequal company_info.lang "chinese" %}
+		                    	<a href="company.html?lang=english" style="float:right;">切换到英文编辑</a>
+		                    {% endifequal %}
+		                    {% ifequal company_info.lang "english" %}
+		                    	<a href="company.html?lang=chinese" style="float:right;">切换到中文编辑</a>
+		                    {% endifequal %}
+		                </div>
+                    	<form class="edit_company_form" enctype="multipart/form-data" method="post" action="">
+	                        <div class="field-box hidden">
+	                        	<label>语言:</label>
+	                        	<input type="text" class="inline-input span8" name="lang" value="{{ company_info.lang }}" />
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司简介:</label>
+	                        	<input type="text" class="inline-input span8" name="short_name" placeholder="不超过50字" value="{{ company_info.short_name }}" maxlength="50"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司全称:</label>
+	                        	<input type="text" class="inline-input span8" name="full_name" placeholder="不超过200字" value="{{ company_info.full_name }}" maxlength="200"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司联系电话:</label>
+	                        	<input type="text" class="inline-input span8" placeholder="不超过20字" data-toggle="tooltip" data-trigger="focus" title="格式：英文 +(86)0576-81234567，中文0576-81234567" data-placement="right" name="contact_num" value="{{ company_info.contact_num }}" maxlength="20"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司订单电话:</label>
+	                        	<input type="text" class="inline-input span8" placeholder="不超过20字" data-toggle="tooltip" data-trigger="focus" title="格式：英文 +(86)0576-81234567，中文0576-81234567" data-placement="right" name="order_num" value="{{ company_info.order_num }}" maxlength="20"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司传真:</label>
+	                        	<input type="text" class="inline-input span8" placeholder="不超过20字" data-toggle="tooltip" data-trigger="focus" title="格式：英文 +(86)0576-81234567，中文0576-81234567" data-placement="right" name="fax_num" value="{{ company_info.fax_num }}" maxlength="20"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司联系人:</label>
+	                        	<input type="text" class="inline-input span8" name="contact_name" placeholder="不超过20字" value="{{ company_info.contact_name }}" maxlength="20"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司地址:</label>
+	                        	<input type="text" class="inline-input span8" name="address" placeholder="不超过500字" value="{{ company_info.address }}" maxlength="500"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司邮编:</label>
+	                        	<input type="text" class="inline-input span8" name="postcode" placeholder="不超过6字" data-toggle="tooltip" data-trigger="focus" title="格式：123456" data-placement="right" value="{{ company_info.postcode }}" maxlength="6"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司邮箱:</label>
+	                        	<input type="text" class="inline-input span8" name="email" placeholder="不超过50字" data-toggle="tooltip" data-trigger="focus" title="格式：abc@xxx.com" data-placement="right" value="{{ company_info.email }}" maxlength="50"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司网址:</label>
+	                        	<input type="text" class="inline-input span8" name="website" placeholder="不超过50字" data-toggle="tooltip" data-trigger="focus" title="格式：http://www.xxx.com" data-placement="right" value="{{ company_info.website }}" maxlength="50"/>
+	                        </div>
+	                        <div class="field-box">
+	                        	<label>公司简介:</label>
+			                    <textarea id="abstract_editor_id" name="abstract" style="width:600px;height:200px;" placeholder="不超过500字"></textarea>
+							</div>
+							<div class="field-box">
+	                        	<label>公司详细介绍:</label>
+			                    <textarea id="introduction_editor_id" name="introduction" style="width:600px;height:200px;" placeholder="不超过500字"></textarea>
+							</div>
+							<div class="field-box">
+	                        	<label>公司文化介绍:</label>
+			                    <textarea id="culture_editor_id" name="culture" style="width:600px;height:200px;" placeholder="不超过500字"></textarea>
+							</div>
+							<div class="field-box">
+	                        	<label>公司产品应用:</label>
+			                    <textarea id="application_editor_id" name="application" style="width:600px;height:200px;" placeholder="不超过500字"></textarea>
+							</div>
+							<div class="field-box">
+	                        	<label>公司主营业务介绍:</label>
+			                    <textarea id="business_editor_id" name="business" style="width:600px;height:200px;" placeholder="不超过500字"></textarea>
+							</div>
+							<div class="field-box">
+	                        	<label>公司资格和证书介绍:</label>
+			                    <textarea id="certificate_info_editor_id" name="certificate_info" style="width:600px;height:200px;" placeholder="不超过500字"></textarea>
+							</div>
+	                        <div class="field-box">
+	                        	<div><input type="submit" value="保存" class="btn-glow primary" /></div>
+	                        </div>
+                        </form>
+                	</div>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+    <!-- end main container -->
+
+
+	<!-- this page scripts -->
+    <script src="js/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/theme.js"></script>
+    <script charset="utf-8" src="js/editor/kindeditor.js"></script>
+	<script charset="utf-8" src="js/lang/zh_CN.js"></script>
+    <script>
+	    $(document).ready(function() {
+	
+			/* textarea editor */
+			var cn_editor = null;
+			var en_editor = null;
+	        KindEditor.ready(function(K) {
+	        	var options = {
+	        			themesPath: 'css/editor/',
+	        	        filterMode : true
+	        	};
+	        	abstract_editor = K.create('#abstract_editor_id', options);
+	        	culture_editor = K.create('#culture_editor_id', options);
+	        	abstract_editor.html("{{ company_info.abstract }}");
+	        	abstract_editor.sync();
+	        	culture_editor.sync();
+	        });
+	    });
+    </script>
+</body>
+</html>

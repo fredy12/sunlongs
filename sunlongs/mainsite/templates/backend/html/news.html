@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>双龙泵业 Admin - Gallery</title>
+    
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+    <!-- bootstrap -->
+    <link href="css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/elements.css" />
+    <link rel="stylesheet" type="text/css" href="css/icons.css" />
+
+    <!-- libraries -->
+    <link href="css/lib/font-awesome.css" type="text/css" rel="stylesheet" />
+    
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="css/compiled/gallery.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/compiled/tables.css" type="text/css" media="screen" />
+
+    <!-- open sans font -->
+    <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+
+    <!-- navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a class="brand" href="index.html"><img src="img/logo.png" /></a>
+
+            <ul class="nav pull-right">                
+                <li class="hidden-phone">
+                    <input class="search" type="text" />
+                </li>
+                <li class="notification-dropdown hidden-phone">
+                    <a href="#" class="trigger">
+                        <i class="icon-warning-sign"></i>
+                        <span class="count">8</span>
+                    </a>
+                    <div class="pop-dialog">
+                        <div class="pointer right">
+                            <div class="arrow"></div>
+                            <div class="arrow_border"></div>
+                        </div>
+                        <div class="body">
+                            <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
+                            <div class="notifications">
+                                <h3>You have 6 new notifications</h3>
+                                <a href="#" class="item">
+                                    <i class="icon-signin"></i> New user registration
+                                    <span class="time"><i class="icon-time"></i> 13 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-signin"></i> New user registration
+                                    <span class="time"><i class="icon-time"></i> 18 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-envelope-alt"></i> New message from Alejandra
+                                    <span class="time"><i class="icon-time"></i> 28 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-signin"></i> New user registration
+                                    <span class="time"><i class="icon-time"></i> 49 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <i class="icon-download-alt"></i> New order placed
+                                    <span class="time"><i class="icon-time"></i> 1 day.</span>
+                                </a>
+                                <div class="footer">
+                                    <a href="#" class="logout">View all notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="notification-dropdown hidden-phone">
+                    <a href="#" class="trigger">
+                        <i class="icon-envelope-alt"></i>
+                    </a>
+                    <div class="pop-dialog">
+                        <div class="pointer right">
+                            <div class="arrow"></div>
+                            <div class="arrow_border"></div>
+                        </div>
+                        <div class="body">
+                            <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
+                            <div class="messages">
+                                <a href="#" class="item">
+                                    <img src="img/contact-img.png" class="display" />
+                                    <div class="name">Alejandra Galván</div>
+                                    <div class="msg">
+                                        There are many variations of available, but the majority have suffered alterations.
+                                    </div>
+                                    <span class="time"><i class="icon-time"></i> 13 min.</span>
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/contact-img2.png" class="display" />
+                                    <div class="name">Alejandra Galván</div>
+                                    <div class="msg">
+                                        There are many variations of available, have suffered alterations.
+                                    </div>
+                                    <span class="time"><i class="icon-time"></i> 26 min.</span>
+                                </a>
+                                <a href="#" class="item last">
+                                    <img src="img/contact-img.png" class="display" />
+                                    <div class="name">Alejandra Galván</div>
+                                    <div class="msg">
+                                        There are many variations of available, but the majority have suffered alterations.
+                                    </div>
+                                    <span class="time"><i class="icon-time"></i> 48 min.</span>
+                                </a>
+                                <div class="footer">
+                                    <a href="#" class="logout">View all messages</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
+                        {{ account_name }}
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="personal-info.html">个人信息</a></li>
+                    </ul>
+                </li>
+                <li class="settings hidden-phone">
+                    <a href="personal-info.html" role="button">
+                        <i class="icon-cog"></i>
+                    </a>
+                </li>
+                <li class="settings hidden-phone">
+                    <a href="signin.html" role="button">
+                        <i class="icon-share-alt"></i>
+                    </a>
+                </li>
+            </ul>            
+        </div>
+    </div>
+    <!-- end navbar -->
+
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li>
+                <a href="index.html">
+                    <i class="icon-home"></i>
+                    <span>总览</span>
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-edit"></i>
+                    <span>信息编辑</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="edit/base.html">基本信息</a></li>
+                    <li><a href="edit/company.html">公司信息</a></li>
+                    <li><a href="edit/product.html">产品信息</a></li>
+                </ul>
+            </li>
+            <li>
+            	<a href="news.html">
+            		<i class="icon-volume-up"></i>
+            		<span>发布新闻</span>
+            	</a>
+            </li>
+            <li>
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+                <a href="gallery.html">
+                    <i class="icon-picture"></i>
+                    <span>素材编辑</span>
+                </a>
+            </li>
+            <li>
+                <a href="tables.html">
+                    <i class="icon-th-large"></i>
+                    <span>查收邮件</span>
+                </a>
+            </li>
+            <li>
+                <a href="personal-info.html">
+                    <i class="icon-cog"></i>
+                    <span>设置</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+
+	<!-- main container -->
+    <div class="content">
+        
+        <!-- settings changer -->
+        <div class="skins-nav">
+            <a href="#" class="skin first_nav selected">
+                <span class="icon"></span><span class="text">Default</span>
+            </a>
+            <a href="#" class="skin second_nav" data-file="css/skins/dark.css">
+                <span class="icon"></span><span class="text">Dark skin</span>
+            </a>
+            <a href="#" class="skin second_nav">
+                <span class="icon"></span><span class="text">Black skin</span>
+            </a>
+        </div>
+        
+        <!-- news edit -->
+        <div class="container-fluid">
+            <div id="pad-wrapper" class="gallery">
+            	<div class="gallery">
+                    <div class="row-fluid header">
+                        <h3>发布新闻</h3>
+                    </div>
+                    
+                    
+                    <!-- chinese news table-->
+	                <!-- the script for the toggle all checkboxes from header is located in js/theme.js -->
+	                <div class="table-wrapper products-table section chinese_news">
+	                    <div class="row-fluid head">
+	                        <div class="span12">
+	                            <h4>中文新闻</h4>
+	                        </div>
+	                    </div>
+	
+	                    <div class="row-fluid filter-block">
+	                        <div class="pull-right">
+	                        	<!--
+	                            <div class="ui-select">
+	                                <select>
+	                                  <option />Filter users
+	                                  <option />Signed last 30 days
+	                                  <option />Active users
+	                                </select>
+	                            </div>
+	                            -->
+	                            <a class="btn-flat small">搜索</a>
+	                            <input type="text" class="search" />
+	                            <a class="btn-flat success new_news">+ 添加新闻</a>
+	                        </div>
+	                    </div>
+	
+	                    <div class="row-fluid">
+	                        <table class="table table-hover">
+	                            <thead>
+	                                <tr>
+	                                    <th class="span3">
+	                                                                                新闻标题
+	                                    </th>
+	                                    <th class="span3">
+	                                        <span class="line"></span>新闻内容
+	                                    </th>
+	                                    <th class="span3">
+	                                        <span class="line"></span>创建时间
+	                                    </th>
+	                                    <th class="span3">
+	                                        <span class="line"></span>是否生效
+	                                    </th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                            	{% if chinese_news_info %}
+										{% for news in chinese_news_info %}
+			                                <!-- row -->
+			                                <tr>
+			                                    <td>
+			                                    	<input type="text" name="lang" class="news_lang" style="display:none" value="{{news.lang}}"/>
+			                                        <input type="button" class="btn btn-link news_title edit_news" style="font-size:12px;" value="{{ news.title }}" />
+			                                    </td>
+			                                    <td class="intro">
+			                                    {{ news.intro }}
+			                                    </td>
+			                                    <td class="news_content" style="display:none;">
+			                                    {{ news.content }}
+			                                    </td>
+			                                    <td>
+			                                    {{ news.create_time|date:'Y-m-d H:i' }}
+			                                    </td>
+			                                    <td>
+			                                        <input type="checkbox" class="news_status_switch" {% if news.status == 1 %} checked {% endif %}/>
+			                                        <span class="label label-success news_status_on" style="margin-top:5px;{% if news.status == 0 %}display:none;{% endif %}" >生效</span>
+			                                        <span class="label news_status_off" style="margin-top:5px;{% if news.status == 1 %}display:none;{% endif %}" >未生效</span>
+			                                        <ul class="actions">
+			                                        		<li class="last">
+				                                        		<form class="delete_news_form hidden" enctype="multipart/form-data" method="post" action="delete_news">
+				                                        			<input type="text" name="id" class="news_id" style="display:none" value="{{news.id}}"/>
+				                                        		</form>
+				                                        		<a href="#" class="delete_news">删除</a>
+			                                        		</li>
+			                                        </ul>
+			                                    </td>
+			                                </tr>
+		                                {% endfor %}
+		                            {% endif %}
+	                            </tbody>
+	                        </table>
+	                        <div class="pagination pull-left cn_pagination">
+                                <ul>
+                                    <li class="left_page_btn"><a href="#">&#8249;</a></li>
+                                    {% for i in chinese_page_count %}
+                                    <li class="page_btn"><a {% if i == cn_page_num %}class="active"{% endif %} href="#">{{ i }}</a></li>
+                                    {% endfor %}
+                                    <li class="right_page_btn"><a href="#">&#8250;</a></li>
+                                </ul>
+                            </div>
+	                    </div>
+	                </div>
+	                <!-- end chinese news table -->
+                    
+                    
+                    <!-- edit chinese news pop up -->
+                    <div class="popup hide chinese_news_popup" style="width:710px;position:fixed;">
+                   	 	<form class="edit_news_form" enctype="multipart/form-data" method="post" action="edit_news">
+	                    	<h5 class="new_news_tag" style="display:none;">添加新闻</h5>
+	                    	<h5 class="edit_news_tag" style="display:none;">修改新闻</h5>
+	                    	<i class="close-pop table-delete"></i>
+		                    <input type="text" name="id" class="popup_news_id inline-input" style="display:none;"/>
+		                    <input type="text" name="lang" class="popup_news_lang inline-input" style="display:none;" value="chinese"/>
+		                    <input type="text" name="title" class="inline-input popup_news_title" placeholder="请输入新闻标题" style="font-weight:bold;width:500px;" />
+		                    <span class="label label-important">必填</span>
+		                    <div class="popup_news_content">
+			                    <!-- textarea editor -->
+			                    <textarea id="cn_editor_id" name="content" style="width:700px;height:300px;">
+								</textarea>
+							</div>
+							<input type="submit" value="提交" class="btn-glow primary" />
+		                    <!-- end textarea editor -->
+		                </form>
+	                </div>
+	                <!-- end chinese news pop up -->
+                    
+                    
+                    
+                    
+                    
+                    <!-- english news table-->
+	                <!-- the script for the toggle all checkboxes from header is located in js/theme.js -->
+	                <div class="table-wrapper products-table section english_news">
+	                    <div class="row-fluid head">
+	                        <div class="span12">
+	                            <h4>英文新闻</h4>
+	                        </div>
+	                    </div>
+	
+	                    <div class="row-fluid filter-block">
+	                        <div class="pull-right">
+	                        	<!--
+	                            <div class="ui-select">
+	                                <select>
+	                                  <option />Filter users
+	                                  <option />Signed last 30 days
+	                                  <option />Active users
+	                                </select>
+	                            </div>
+	                            -->
+	                            <a class="btn-flat small">Search</a>
+	                            <input type="text" class="search" />
+	                            <a class="btn-flat success new_news">+ Add News</a>
+	                        </div>
+	                    </div>
+	
+	                    <div class="row-fluid">
+	                        <table class="table table-hover">
+	                            <thead>
+	                                <tr>
+	                                    <th class="span3">
+	                                        TITLE
+	                                    </th>
+	                                    <th class="span3">
+	                                        <span class="line"></span>CONTENT
+	                                    </th>
+	                                    <th class="span3">
+	                                        <span class="line"></span>CREATE TIME
+	                                    </th>
+	                                    <th class="span3">
+	                                        <span class="line"></span>IS PUBLISHED
+	                                    </th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                            	{% if english_news_info %}
+										{% for news in english_news_info %}
+			                                <!-- row -->
+			                                <tr>
+			                                    <td>
+			                                    	<input type="text" name="lang" class="news_lang" style="display:none" value="{{news.lang}}"/>
+			                                        <input type="button" class="btn btn-link news_title edit_news" style="font-size:12px;" value="{{ news.title }}" />
+			                                    </td>
+			                                    <td class="intro">
+			                                    {{ news.intro }}
+			                                    </td>
+			                                    <td class="news_content" style="display:none;">
+			                                    {{ news.content }}
+			                                    </td>
+			                                    <td>
+			                                    {{ news.create_time|date:'Y-m-d H:i' }}
+			                                    </td>
+			                                    <td>
+			                                        <input type="checkbox" class="news_status_switch" {% if news.status == 1 %} checked {% endif %}/>
+			                                        <span class="label label-success news_status_on" style="margin-top:5px;{% if news.status == 0 %}display:none;{% endif %}" >online</span>
+			                                        <span class="label news_status_off" style="margin-top:5px;{% if news.status == 1 %}display:none;{% endif %}" >offline</span>
+			                                        <ul class="actions">
+			                                        		<li class="last">
+				                                        		<form class="delete_news_form hidden" enctype="multipart/form-data" method="post" action="delete_news">
+				                                        			<input type="text" name="id" class="news_id" style="display:none" value="{{news.id}}"/>
+				                                        		</form>
+				                                        		<a href="#" class="delete_news">DELETE</a>
+			                                        		</li>
+			                                        </ul>
+			                                    </td>
+			                                </tr>
+		                                {% endfor %}
+		                            {% endif %}
+	                            </tbody>
+	                        </table>
+	                        <div class="pagination pull-left en_pagination">
+                                <ul>
+                                    <li class="left_page_btn"><a href="#">&#8249;</a></li>
+                                    {% for i in english_page_count %}
+                                    <li class="page_btn"><a {% if i == en_page_num %}class="active"{% endif %} href="#">{{ i }}</a></li>
+                                    {% endfor %}
+                                    <li class="right_page_btn"><a href="#">&#8250;</a></li>
+                                </ul>
+                            </div>
+	                    </div>
+	                </div>
+	                <!-- end english news table -->
+                    
+                    
+                    <!-- edit english news pop up -->
+                    <div class="popup hide english_news_popup" style="width:710px;position:fixed;">
+                   	 	<form class="edit_news_form" enctype="multipart/form-data" method="post" action="edit_news">
+	                    	<h5 class="new_news_tag" style="display:none;">Add News</h5>
+	                    	<h5 class="edit_news_tag" style="display:none;">Modify News</h5>
+	                    	<i class="close-pop table-delete"></i>
+		                    <input type="text" name="id" class="popup_news_id inline-input" style="display:none;"/>
+		                    <input type="text" name="lang" class="popup_news_lang inline-input" style="display:none;" value="english"/>
+		                    <input type="text" name="title" class="inline-input popup_news_title" placeholder="Input News Title" style="font-weight:bold;width:500px;" />
+		                    <span class="label label-important">必填</span>
+		                    <div class="popup_news_content">
+			                    <!-- textarea editor -->
+			                    <textarea id="en_editor_id" name="content" style="width:700px;height:300px;">
+								</textarea>
+							</div>
+							<input type="submit" value="Submit" class="btn-glow primary" />
+		                    <!-- end textarea editor -->
+		                </form>
+	                </div>
+	                <!-- end english news pop up -->
+                    
+                    
+                    
+                    
+                    
+                </div>
+                <!-- end news edit -->
+        
+             
+        </div>
+    </div>
+    <!-- end main container -->
+
+
+	<!-- this page scripts -->
+    <script src="js/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/theme.js"></script>
+	<script>
+	 $(document).ready(function() {
+
+		/* news */
+		var cn_editor = null;
+		var en_editor = null;
+        KindEditor.ready(function(K) {
+        	var options = {
+        			themesPath: 'css/editor/',
+        	        filterMode : true
+        	};
+        	cn_editor = K.create('#cn_editor_id', options);
+        	en_editor = K.create('#en_editor_id', options);
+        	cn_editor.sync();
+        	en_editor.sync();
+        });
+
+        /* edit news popup */
+        
+        /* -- chinese news -- */
+        $(".chinese_news").delegate(".new_news", "click", function() {
+        	$(".chinese_news_popup").find(".new_news_tag").show();
+        	$(".chinese_news_popup").find(".edit_news_tag").hide();
+        	$(".chinese_news_popup").find(".popup_news_id").val("");
+        	$(".chinese_news_popup").find(".popup_news_title").val("");
+        	cn_editor.html("新闻内容");
+        	cn_editor.sync();
+        	$(".chinese_news_popup").css({'left': ($(window).width()-$(".chinese_news_popup").width())/2, 'top': ($(window).height()-$(".chinese_news_popup").height())/2}).show();
+        });
+        
+        $(".chinese_news").delegate(".edit_news", "click", function() {
+        	$(".chinese_news_popup").find(".new_news_tag").hide();
+        	$(".chinese_news_popup").find(".edit_news_tag").show();
+        	var news_id = $(this).parent().parent().find(".news_id").val();
+        	var news_title = $(this).val();
+        	var news_content = $(this).parent().parent().find(".news_content").text();
+        	$(".chinese_news_popup").find(".popup_news_id").val(news_id);
+        	$(".chinese_news_popup").find(".popup_news_title").val(news_title);
+        	cn_editor.html(news_content);
+        	cn_editor.sync();
+        	$(".chinese_news_popup").css({'left': ($(window).width()-$(".chinese_news_popup").width())/2, 'top': ($(window).height()-$(".chinese_news_popup").height())/2}).show();
+        });
+        
+        /* -- english news -- */
+        $(".english_news").delegate(".new_news", "click", function() {
+        	$(".english_news_popup").find(".new_news_tag").show();
+        	$(".english_news_popup").find(".edit_news_tag").hide();
+        	$(".english_news_popup").find(".popup_news_id").val("");
+        	$(".english_news_popup").find(".popup_news_title").val("");
+        	en_editor.html("News Content");
+        	en_editor.sync();
+        	$(".english_news_popup").css({'left': ($(window).width()-$(".english_news_popup").width())/2, 'top': ($(window).height()-$(".english_news_popup").height())/2}).show();
+        });
+        
+        $(".english_news").delegate(".edit_news", "click", function() {
+        	$(".english_news_popup").find(".new_news_tag").hide();
+        	$(".english_news_popup").find(".edit_news_tag").show();
+        	var news_id = $(this).parent().parent().find(".news_id").val();
+        	var news_title = $(this).val();
+        	var news_content = $(this).parent().parent().find(".news_content").text();
+        	$(".english_news_popup").find(".popup_news_id").val(news_id);
+        	$(".english_news_popup").find(".popup_news_title").val(news_title);
+        	en_editor.html(news_content);
+        	en_editor.sync();
+        	$(".english_news_popup").css({'left': ($(window).width()-$(".english_news_popup").width())/2, 'top': ($(window).height()-$(".english_news_popup").height())/2}).show();
+        });
+        
+        
+        $(".content").delegate(".delete_news", "click", function() {
+        	$(this).parent().find(".delete_news_form").submit();
+        });
+        
+        $(".content").delegate(".close-pop", "click", function() {
+			 $(this).parent().parent().hide();
+		});
+        
+        /* end news popup */
+        
+        /* change news status */
+        $(".content").delegate(".news_status_switch", "change", function(){
+        	if ($(this).is(":checked") == true) {
+        		$(this).parent().find(".news_status_off").hide();
+        		$(this).parent().find(".news_status_on").show();
+        		var status = 1;
+        	} else {
+        		$(this).parent().find(".news_status_on").hide();
+        		$(this).parent().find(".news_status_off").show();
+        		var status = 0;
+        	}
+        	
+        	var news_id = $(this).parents("td").find(".news_id").val();
+			var lang = $(this).parents("tr").find(".news_lang").val();
+        	
+        	$.ajax({
+                type: "POST",
+                url: "set_news_status",
+                data: {
+                	"lang": lang,
+                	"id": news_id,
+                	"status": status
+                },
+                success: function(data){
+                	alert("修改成功！");
+                }
+        	});
+        	
+        });
+        /* end change news status */
+        
+        
+        /* pagination */
+        
+        $(".cn_pagination").delegate(".page_btn", "click", function() {
+        	$(this).children("a").attr('href','?cn_page_num='+$(this).children("a").text()+'&en_page_num='+$(".en_pagination").find(".active").text());
+        });
+        
+        $(".cn_pagination").delegate(".left_page_btn", "click", function(){
+        	// get now page num
+        	var now_page_num = parseInt($(".cn_pagination").find(".active").text());
+        	if (now_page_num > 1) {
+        		now_page_num = now_page_num - 1;
+        	}
+        	$(this).children("a").attr('href','?cn_page_num='+now_page_num+'&en_page_num='+$(".en_pagination").find(".active").text());
+        });
+        
+        $(".cn_pagination").delegate(".right_page_btn", "click", function(){
+        	// get now page num
+        	var now_page_num = parseInt($(".cn_pagination").find(".active").text());
+        	var max_page_num = parseInt($(this).prev().children("a").text());
+        	if (now_page_num < max_page_num) {
+        		now_page_num = now_page_num + 1;
+        	}
+        	$(this).children("a").attr('href','?cn_page_num='+now_page_num+'&en_page_num='+$(".en_pagination").find(".active").text());
+        });
+        
+        $(".en_pagination").delegate(".page_btn", "click", function() {
+        	$(this).children("a").attr('href','?en_page_num='+$(this).children("a").text()+'&cn_page_num='+$(".cn_pagination").find(".active").text());
+        });
+        
+        $(".en_pagination").delegate(".left_page_btn", "click", function(){
+        	// get now page num
+        	var now_page_num = parseInt($(".en_pagination").find(".active").text());
+        	if (now_page_num > 1) {
+        		now_page_num = now_page_num - 1;
+        	}
+        	$(this).children("a").attr('href','?en_page_num='+now_page_num+'&cn_page_num='+$(".cn_pagination").find(".active").text());
+        });
+        
+        $(".en_pagination").delegate(".right_page_btn", "click", function(){
+        	// get now page num
+        	var now_page_num = parseInt($(".en_pagination").find(".active").text());
+        	var max_page_num = parseInt($(this).prev().children("a").text());
+        	if (now_page_num < max_page_num) {
+        		now_page_num = now_page_num + 1;
+        	}
+        	$(this).children("a").attr('href','?en_page_num='+now_page_num+'&cn_page_num='+$(".cn_pagination").find(".active").text());
+        });
+        
+        /* end pagination */
+        
+	 });
+	</script>
+	<script charset="utf-8" src="js/editor/kindeditor.js"></script>
+	<script charset="utf-8" src="js/lang/zh_CN.js"></script>
+
+</body>
+</html>
