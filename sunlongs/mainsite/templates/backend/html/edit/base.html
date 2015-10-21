@@ -40,6 +40,7 @@
 					                            <h5>编辑首页滚动图片</h5>
 					                            <input type="text" name="redirect" style="display:none;" value="edit/base.html" />
 					                            <input type="text" name="file_id" class="popup_image_id" style="display:none;" value="{{image.id}}" />
+					                            <input type="text" name="media_type" style="display:none;" value="{{image.media_type}}" readonly />
 					                            <input type="text" name="type" class="inline-input" style="display:none;" value="{{ image.type }}" readonly />
 					                            <input type="text" name="tag" class="inline-input" style="display:none;" value="{{ image.tag }}" readonly />
 					                            <input type="text" name="display_name" class="inline-input popup_display_name" placeholder="显示名" value="{{ image.display_name }}" />
@@ -76,6 +77,7 @@
 									    </label>
 									    <input type="text" name="redirect" style="display:none;" value="edit/base.html" />
 										<input id="rolling_image_upload" class="image_upload" type="file" name="file_info" style="display:none;"/>
+										<input type="text" name="media_type" style="display:none;" value="image" readonly />
 										<input type="text" name="type" style="display:none;" value="{{ type }}" />
 										<input type="text" name="tag" style="display:none;" value="{{ rolling_tag }}" />
 									</div>
@@ -112,6 +114,7 @@
 					                            <h5>编辑公司logo图片</h5>
 					                            <input type="text" name="redirect" style="display:none;" value="edit/base.html" />
 					                            <input type="text" name="file_id" class="popup_image_id" style="display:none;" value="{{image.id}}" />
+					                            <input type="text" name="media_type" style="display:none;" value="{{image.media_type}}" readonly />
 					                            <input type="text" name="type" class="inline-input" style="display:none;" value="{{ image.type }}" readonly />
 					                            <input type="text" name="tag" class="inline-input" style="display:none;" value="{{ image.tag }}" readonly />
 					                            <input type="text" name="display_name" class="inline-input popup_display_name" placeholder="显示名" value="{{ image.display_name }}" />
@@ -148,6 +151,7 @@
 									    </label>
 									    <input type="text" name="redirect" style="display:none;" value="edit/base.html" />
 										<input id="logo_image_upload" class="image_upload" type="file" name="file_info" style="display:none;"/>
+										<input type="text" name="media_type" style="display:none;" value="image" readonly />
 										<input type="text" name="type" style="display:none;" value="{{ type }}" />
 										<input type="text" name="tag" style="display:none;" value="{{ logo_tag }}" />
 									</div>
@@ -184,6 +188,7 @@
 					                            <h5>编辑资质认证图片</h5>
 					                            <input type="text" name="redirect" style="display:none;" value="edit/base.html" />
 					                            <input type="text" name="file_id" class="popup_image_id" style="display:none;" value="{{image.id}}" />
+					                            <input type="text" name="media_type" style="display:none;" value="{{image.media_type}}" readonly />
 					                            <input type="text" name="type" class="inline-input" style="display:none;" value="{{ image.type }}" readonly />
 					                            <input type="text" name="tag" class="inline-input" style="display:none;" value="{{ image.tag }}" readonly />
 					                            <input type="text" name="display_name" class="inline-input popup_display_name" placeholder="显示名" value="{{ image.display_name }}" />
@@ -220,6 +225,7 @@
 									    </label>
 									    <input type="text" name="redirect" style="display:none;" value="edit/base.html" />
 										<input id="certificate_image_upload" class="image_upload" type="file" name="file_info" style="display:none;"/>
+										<input type="text" name="media_type" style="display:none;" value="image" readonly />
 										<input type="text" name="type" style="display:none;" value="{{ type }}" />
 										<input type="text" name="tag" style="display:none;" value="{{ certificate_tag }}" />
 									</div>
