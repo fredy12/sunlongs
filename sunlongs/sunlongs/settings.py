@@ -189,7 +189,7 @@ EMAIL_TO_USER = 'xxx@xxxxx.com'
 ##############
 
 USER_NAME = 'xxxxx'
-USER_MAIL = 'xxxx@xxxxxx.com'
+USER_EMAIL = 'xxxx@xxxxxx.com'
 RESET_PASSWORD_MD5 = 'xxxxxxxxxxxxxx'
 
 # end login info
