@@ -61,7 +61,7 @@
 			</h3>
 			<div class="paragraph-content">
 				<!-- <img alt="" src="images/20130815_165321.jpg" style="width: 150px; height: 100px; float: left; margin: 1px 8px;"> -->
-				<span style="line-height: 2;">{% autoescape off %} {{ company.abstract }} {% endautoescape %}</span>
+				<span style="line-height: 2;" class="list_style">{% autoescape off %} {{ company.abstract }} {% endautoescape %}</span>
 			</div>
 		</div>
 		
@@ -98,4 +98,15 @@
 		<i class="slide-btn-l slide-btn-disabled" id="photoPrev" style="margin-top: 4px;"></i><i class="slide-btn-r" id="photoNext" "="" style="margin-top: 4px;"></i>
 	</div>	
 </div>
+{% endblock %}
+
+{% block additional %}
+	<style>
+	.list_style ol {
+		list-style: decimal;
+	}
+	.list_style ul {
+		list-style: disc;
+	}
+	</style>
 {% endblock %}

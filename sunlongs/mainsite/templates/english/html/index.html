@@ -59,7 +59,7 @@
 				<a href="company.html" title="Detail Company Introduction" target="_self">Detail&gt;&gt;</a>
 			</h3>
 			<div class="paragraph-content">
-				<span style="line-height: 2;">{% autoescape off %} {{ company.abstract }} {% endautoescape %}</span>
+				<span style="line-height: 2;" class="list_style">{% autoescape off %} {{ company.abstract }} {% endautoescape %}</span>
 			</div>
 		</div>
 		
@@ -97,4 +97,15 @@
 	</div>	
 </div>
 
+{% endblock %}
+
+{% block additional %}
+	<style>
+	.list_style ol {
+		list-style: decimal;
+	}
+	.list_style ul {
+		list-style: disc;
+	}
+	</style>
 {% endblock %}

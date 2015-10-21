@@ -52,7 +52,7 @@
 		    </div>
 	
 	        <div class="editor active" id="showtext">
-			    <div>
+			    <div class="list_style">
 			    {% autoescape off %} {{ company.introduction }} {% endautoescape %}
 				</div>
 				<div class="clear"></div>
@@ -62,4 +62,15 @@
 	    <div class="clear"></div>
 	</div>
 
-	{% endblock %}
+{% endblock %}
+
+{% block additional %}
+	<style>
+	.list_style ol {
+		list-style: decimal;
+	}
+	.list_style ul {
+		list-style: disc;
+	}
+	</style>
+{% endblock %}
