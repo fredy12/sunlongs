@@ -22,8 +22,10 @@ urlpatterns = patterns('',
     url(r'^edit_news$', backend_views.edit_news, name='edit_news'),
     url(r'^delete_news$', backend_views.delete_news, name='delete_news'),
     url(r'^set_news_status$', backend_views.set_news_status, name='set_news_status'),
-    url(r'^email.html$', backend_views.email, name='email'),
-    url(r'^setting.html$', backend_views.setting, name='setting'),
+    url(r'^login.html$', backend_views.admin_login, name='admin_login'),
+    url(r'^logout.html$', backend_views.admin_logout, name='admin_logout'),
+    url(r'^edit/logout.html$', backend_views.admin_logout, name='admin_logout'),
+    url(r'^forget.html$', backend_views.forget_password, name='forget_password'),
     url( r'^edit/js/(?P<path>.*)$', 'django.views.static.serve',
             { 'document_root': TEMPLATE_DIRS+'/backend/js/' }
     ),
@@ -42,17 +44,20 @@ urlpatterns = patterns('',
     url( r'^img/(?P<path>.*)$', 'django.views.static.serve',
             { 'document_root': TEMPLATE_DIRS+'/backend/images/' }
     ),
+    url( r'^images/(?P<path>.*)$', 'django.views.static.serve',
+            { 'document_root': TEMPLATE_DIRS+'/backend/images/' }
+    ),
     url( r'^edit/font/(?P<path>.*)$', 'django.views.static.serve',
             { 'document_root': TEMPLATE_DIRS+'/backend/fonts/' }
     ),
     url( r'^font/(?P<path>.*)$', 'django.views.static.serve',
             { 'document_root': TEMPLATE_DIRS+'/backend/fonts/' }
     ),
-    url( r'^pic/(?P<path>.*)$', 'django.views.static.serve',
-            { 'document_root': TEMPLATE_DIRS+'/../../media/pic/'}
+    url( r'^file/(?P<path>.*)$', 'django.views.static.serve',
+            { 'document_root': TEMPLATE_DIRS+'/../../media/file/'}
     ),
-    url( r'^edit/pic/(?P<path>.*)$', 'django.views.static.serve',
-            { 'document_root': TEMPLATE_DIRS+'/../../media/pic/'}
+    url( r'^edit/file/(?P<path>.*)$', 'django.views.static.serve',
+            { 'document_root': TEMPLATE_DIRS+'/../../media/file/'}
     ),
     url( r'^edit/product/(?P<path>.*)$', 'django.views.static.serve',
             { 'document_root': TEMPLATE_DIRS+'/../../media/product/'}
@@ -60,8 +65,9 @@ urlpatterns = patterns('',
     url(r'^new_article$', backend_views.new_article, name='new_article'),
     url(r'^delete_article$', backend_views.delete_article, name='delete_article'),
     url(r'^edit_article$', backend_views.edit_article, name='edit_article'),
-    url(r'^upload_image$', backend_views.upload_image, name='upload_image'),
-    url(r'^delete_image$', backend_views.delete_image, name='delete_image'),
-    url(r'^edit_image$', backend_views.edit_image, name='edit_image'),
+    url(r'^upload_file$', backend_views.upload_file, name='upload_file'),
+    url(r'^ajax_upload_file$', backend_views.ajax_upload_file, name='ajax_upload_file'),
+    url(r'^delete_file$', backend_views.delete_file, name='delete_file'),
+    url(r'^edit_file$', backend_views.edit_file, name='edit_file'),
     
 )

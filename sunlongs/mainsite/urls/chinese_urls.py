@@ -32,8 +32,8 @@ urlpatterns = patterns('',
     url( r'^font/(?P<path>.*)$', 'django.views.static.serve',
             { 'document_root': TEMPLATE_DIRS+'/chinese/fonts/' }
     ),
-    url( r'^pic/(?P<path>.*)$', 'django.views.static.serve',
-            { 'document_root': TEMPLATE_DIRS+'/../../media/pic/'}
+    url( r'^file/(?P<path>.*)$', 'django.views.static.serve',
+            { 'document_root': TEMPLATE_DIRS+'/../../media/file/'}
     ),
     url( r'^product/(?P<path>.*)$', 'django.views.static.serve',
             { 'document_root': TEMPLATE_DIRS+'/../../media/product/'}

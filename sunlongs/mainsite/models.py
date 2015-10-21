@@ -17,7 +17,7 @@ class CompanyInfo(models.Model):
     business = models.TextField(null=True, blank=True)
     certificate_info = models.TextField(null=True, blank=True)
     contact_num = models.CharField(max_length=20, null=True, blank=True)
-    contact_name = models.CharField(max_length=20, null=True, blank=True)
+    contact_name = models.CharField(max_length=50, null=True, blank=True)
     order_num = models.CharField(max_length=20, null=True, blank=True)
     fax_num = models.CharField(max_length=20, null=True, blank=True)
     address = models.CharField(max_length=500, null=True, blank=True)
@@ -40,21 +40,22 @@ class ArticleInfo(models.Model):
     update_time = models.DateTimeField(auto_now=True)
 
 
-class ImageInfo(models.Model):
+class FileInfo(models.Model):
     id = models.AutoField(primary_key=True)
-    image = models.ImageField(upload_to='pic')
+    file_info = models.FileField(upload_to='file')
     display_name = models.CharField(max_length=100, null=True, blank=True)
     description = models.CharField(max_length=100, null=True, blank=True)
+    media_type = models.CharField(default='image', max_length=50, null=True, blank=True)
     type = models.CharField(max_length=50, null=True, blank=True)
     tag = models.CharField(max_length=50, null=True, blank=True)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
     
     def delete(self,*args,**kwargs):
-        if os.path.isfile(self.image.path):
-            os.remove(self.image.path)
+        if os.path.isfile(self.file_info.path):
+            os.remove(self.file_info.path)
 
-        super(ImageInfo, self).delete(*args,**kwargs)
+        super(FileInfo, self).delete(*args,**kwargs)
 
 
 class ProductType(models.Model):
@@ -108,6 +109,15 @@ class NewsInfo(models.Model):
     update_time = models.DateTimeField(auto_now=True)
 
 
+class VisitInfo(models.Model):
+    id = models.AutoField(primary_key=True)
+    number = models.IntegerField(null=True, blank=True)
+    type = models.CharField(max_length=20, null=True, blank=True)   # daily / monthly
+    page = models.CharField(max_length=20, null=True, blank=True)
+    create_time = models.DateTimeField(auto_now_add=True)
+    update_time = models.DateTimeField(auto_now=True)
+
+
 class CompanyInfoForm(forms.ModelForm):
     class Meta:
         model = CompanyInfo
@@ -120,9 +130,9 @@ class ArticleInfoForm(forms.ModelForm):
         fields = '__all__'
 
 
-class ImageInfoForm(forms.ModelForm):
+class FileInfoForm(forms.ModelForm):
     class Meta:
-        model = ImageInfo
+        model = FileInfo
         fields = '__all__'
 
 
@@ -146,4 +156,10 @@ class ProductTypeForm(forms.ModelForm):
 class NewsInfoForm(forms.ModelForm):
     class Meta:
         model = NewsInfo
+        fields = '__all__'
+
+
+class VisitInfoForm(forms.ModelForm):
+    class Meta:
+        model = VisitInfo
         fields = '__all__'

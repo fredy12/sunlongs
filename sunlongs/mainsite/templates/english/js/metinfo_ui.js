@@ -32,17 +32,24 @@ function SetHome(obj,vrl,info){
 	}
 }
 function addFavorite(info){
-	if(!ifie()){
-		alert(info);
-		return false;
-	}
-	var vDomainName=window.location.href;
-	var description=document.title;
-	try{
-		window.external.AddFavorite(vDomainName,description);
-	}catch(e){
-		window.sidebar.addPanel(description,vDomainName,"");
-	}
+	var url = window.location;
+    var title = document.title;
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.indexOf("360se") > -1) {
+        alert(info);
+    }else if (ua.indexOf("msie 8") > -1) {  
+        window.external.AddToFavoritesBar(url, title); //IE8  
+    }else if (document.all) {
+      try{  
+        window.external.addFavorite(url, title);  
+      }catch(e){
+        alert(info);
+      }  
+    } else if (window.sidebar) {
+        window.sidebar.addPanel(title, url, "");
+    } else {
+        alert(info);
+    }
 }
 function metHeight(group){
 	tallest=0;

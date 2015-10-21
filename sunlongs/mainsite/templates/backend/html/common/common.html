@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	{% include "backend/html/common/header.html" %}
+	<body>
+		{% include "backend/html/common/nav.html" %}
+	    <!-- sidebar -->
+	    <div id="sidebar-nav">
+	        <ul id="dashboard-menu">
+	            <li {% block siderbar_active_index %}{% endblock %}>
+	            	{% block siderbar_arrow_index %}{% endblock %}
+	                <a href="/admin/index.html">
+	                    <i class="icon-home"></i>
+	                    <span>总览</span>
+	                </a>
+	            </li>
+	            <li {% block siderbar_active_edit %}{% endblock %}>
+	            	{% block siderbar_arrow_edit %}{% endblock %}
+	                <a class="dropdown-toggle" href="#">
+	                    <i class="icon-edit"></i>
+	                    <span>信息编辑</span>
+	                    <i class="icon-chevron-down"></i>
+	                </a>
+	                <ul class="submenu">
+	                    <li><a href="/admin/edit/base.html" {% block siderbar_active_base %}{% endblock %}>基本信息</a></li>
+	                    <li><a href="/admin/edit/company.html" {% block siderbar_active_company %}{% endblock %}>公司信息</a></li>
+	                    <li><a href="/admin/edit/product.html" {% block siderbar_active_product %}{% endblock %}>产品信息</a></li>
+	                </ul>
+	            </li>
+	            <li {% block siderbar_active_news %}{% endblock %}>
+	            	{% block siderbar_arrow_news %}{% endblock %}
+	            	<a href="/admin/news.html">
+	            		<i class="icon-volume-up"></i>
+	            		<span>发布新闻</span>
+	            	</a>
+	            </li>
+	            <li {% block siderbar_active_gallery %}{% endblock %}>
+	            	{% block siderbar_arrow_gallery %}{% endblock %}
+	                <a href="/admin/gallery.html">
+	                    <i class="icon-picture"></i>
+	                    <span>素材管理</span>
+	                </a>
+	            </li>
+	            <li {% block siderbar_active_email %}{% endblock %}>
+	            	{% block siderbar_arrow_email %}{% endblock %}
+	                <a href="http://qiye.163.com/login/" target="_blank">
+	                    <i class="icon-th-large"></i>
+	                    <span>查收邮件</span>
+	                </a>
+	            </li>
+	            <li {% block siderbar_active_setting %}{% endblock %}>
+	            	{% block siderbar_arrow_setting %}{% endblock %}
+	                <a href="/admin/setting.html">
+	                    <i class="icon-cog"></i>
+	                    <span>设置</span>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+	    <!-- end sidebar -->
+		
+		{% block content %}{% endblock %}
+		{% block additional %}{% endblock %}
+	</body>
+</html>

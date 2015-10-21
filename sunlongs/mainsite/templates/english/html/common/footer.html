@@ -1,0 +1,36 @@
+<footer>
+	<div class="foot-inner float-fix" id="footInner">
+
+		<div class="foot-left" style="height: 83px;">
+			<div class="left-align-fix" style="margin-bottom: -25px;"></div>
+			<div class="foot-left-inner">
+				<p><img src="{{ logo_image.file_info }}" id="foot-left-logo" alt="{{ company.short_name }}"></p>
+				<div>{{ company.short_name }}</div>
+			</div>		
+		</div>
+
+		<div class="foot-right">
+		
+			<p class="foot-nav">
+				<a href="index.html" title="Home">HOME</a>
+				<span>|</span>
+				<a href="company.html" title="Company Introduction">COMPANY</a>
+				<span>|</span>
+				<a href="application.html" title="Product Application">APPLICATION</a>
+				<span>|</span>
+				<a href="certificate.html" title="Certificate">CERTIFICATE</a>
+				<span>|</span>
+				<a href="product.html" title="Product">PRODUCT</a>
+				<span>|</span>
+				<a href="news.html" title="News">NEWS</a>
+				<span>|</span>
+				<a href="contact.html" title="Contact">CONTACT</a>
+			</p>
+				
+			<div class="foot-copyright">
+				<p>Copyright © 2003 - {% now "Y" %} {{ company.short_name }} Corporation, All Rights Reserved <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="http://www.miitbeian.gov.cn">浙ICP备15037302号-1</a></p>
+			</div>
+			
+		</div>
+	</div>	
+</footer>

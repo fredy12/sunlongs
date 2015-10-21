@@ -54,10 +54,10 @@ td.submint{ padding:10px;}
 #shownews .editor{ line-height:2; padding:0px 10px; font-size:14px;}
 #shownews h1{ font-size:20px; text-align:center; border-bottom:1px dotted #ccc; padding:5px 0px; margin:10px 0px; color:#333;}
 /*产品模块*/
-#productlist{ padding:15px 10px;}
+#productlist{ padding:25px 10px;}
 #productlist li{ float:left; display:inline; text-align:center;}
 #productlist li a.img{ display:block; text-align:center; font-size:0px;}
-#productlist li a.img img{ margin:auto; border:1px solid #ccc;}
+#productlist li a.img img{ margin:auto; /*border:1px solid #ccc;*/}
 #productlist li h3{ padding:5px 0px 10px; font-weight:normal; line-height:1.5;}
 #showproduct{ padding:15px;}
 #showproduct h1.title{ font-size:18px; padding:5px 0px; margin-bottom:5px;}

@@ -1,154 +1,10 @@
-<!DOCTYPE html>
-<!-- saved from url=(0037)http://www.metinfo.cn/demo/m1511/309/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="renderer" content="webkit">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>{{ company.full_name }}</title>
-<link href="http://www.metinfo.cn/demo/m1511/309/favicon.ico" rel="shortcut icon">
-<link rel="stylesheet" type="text/css" href="css/metinfo_ui.css" id="metuimodule" data-module="10001">
-<link rel="stylesheet" type="text/css" href="css/metinfo.css">
-<script src="js/jQuery1.7.2.js" type="text/javascript"></script>
-<script src="js/metinfo_ui.js" type="text/javascript"></script>
-<script src="js/ch.js" type="text/javascript"></script>
-<!--[if IE]>
-<script src="../public/js/html5.js" type="text/javascript"></script>
-<![endif]-->
-<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
-<style>
-.main-banner, .main-banner ul, .main-banner li, .main-banner li span, .main-banner li a {height:400px; min-height:200px;}
-header {  }
+{% extends "english/html/common/base.html" %}
 
-	body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
-	#allmap {height: 400px;width:100%;overflow: hidden;}
-	#result {width:100%;font-size:12px;}
-	#allmap dl, #allmap dt, #allmap dd, #allmap ul, #allmap li{
-		margin:0;
-		padding:0;
-		list-style:none;
-	}
-	#allmap dt{
-		font-size:14px;
-		font-family:"微软雅黑";
-		font-weight:bold;
-		border-bottom:1px dotted #000;
-		padding:5px 0 5px 5px;
-		margin:5px 0;
-	}
-	#allmap dd{
-		padding:5px 0 0 5px;
-	}
-	#allmap li{
-		line-height:28px;
-	}
-</style>
-</head>
-<body>
-    <header>
-		<div class="head-top float-fix">
+{% block active_nav_id %}4{% endblock %}
+   
+{% block rolling %}<div id="allmap"></div>{% endblock %}
 
-			<h1 class="top-logo" style="font-size:40px;">
-				<a href="" title="{{ company.short_name }}" id="web_logo">
-					 <img src="{{ logo_image.image }}" alt="{{ company.short_name }}" title="{{ company.short_name }}" style="margin:25px 0 0 0px;">
-				</a>
-			</h1>
-
-			<ul class="top-nav">
-				<li><a href="#" onclick="addFavorite(&quot;Your Web Browser is not support, please do it by yourself!&quot;);" style="cursor:pointer;" title="Bookmark">Bookmark</a><span>|</span><a href="/cn/index.html">简体中文</a></li>
-				<li>	
-					<dl class="top-nav-tel">
-						<dt>TEL</dt><dd>{{ company.contact_num }}</dd>
-					</dl>				
-				</li>
-				<li></li>
-			</ul>
-		</div>
-		<nav class="head-nav">
-			<input type="hidden" id="navDownId" value="4">
-			<ul id="headNav">		
-				<li><a href="index.html" class="head-nav-list1" id="nav_0" title="Home" target="_self">HOME</a></li>	
-	
-
-				<li>
-					<div><a href="company.html" class="head-nav-list1" id="nav_1" title="About Us" target="_self">ABOUT US</a></div>
-	
-					<dl>
-	
-						<dd>
-							<a href="company.html" class="head-nav-list2" id="nav_7" title="Company Introduction" target="_self">Company Introduction</a>
-						</dd>
-	
-						<dd>
-							<a href="culture.html" class="head-nav-list2" id="nav_8" title="Corporate Culture" target="_self">Corporate Culture</a>
-						</dd>
-	
-						<dd>
-							<a href="application.html" class="head-nav-list2" id="nav_9" title="Product Application" target="_self">Product Application</a>
-						</dd>
-	
-						<dd>
-							<a href="certificate.html" class="head-nav-list2" id="nav_11" title="Certification" target="_self">Certificate</a>
-						</dd>
-							
-					</dl>
-						
-				</li>
-
-	
-
-				<li>
-					<div><a href="product.html" class="head-nav-list1" id="nav_2" target="_self" title="Product Introduction">PRODUCT</a></div>
-	
-					<dl style="display: none;">
-	
-						{% for product_type in product_types %}
-						<dd>
-							<a href="product.html?type_id={{product_type.id}}" class="head-nav-list2" id="nav_12" target="_self" title="{{product_type.name}}">{{product_type.name}}</a>
-						</dd>
-						{% endfor %}
-					</dl>
-						
-				</li>
-
-	
-
-				<li>
-					<div><a href="news.html" class="head-nav-list1" id="nav_3" title="News" target="_self">NEWS</a></div>
-	
-					<dl>
-	
-						<dd>
-							<a href="news.html" class="head-nav-list2" id="nav_19" title="News" target="_self">News</a>
-						</dd>
-							
-					</dl>
-						
-				</li>
-
-	
-	
-				<li>
-					<div><a href="contact.html" class="head-nav-list1" id="nav_4" title="Contact Us" target="_self">CONTACTS</a></div>
-	
-					<dl>
-	
-						<dd>
-							<a href="contact.html" class="head-nav-list2" id="nav_20" title="Contact Us" target="_self">Contact Us</a>
-						</dd>
-							
-					</dl>
-						
-				</li>
-
-			</ul>
-		</nav>
-		<div class="head-search" id="headSearch" data-text="Search product..."><form method="POST" name="myform1" action="" target="_self"><input type="hidden" name="lang" value="cn">&nbsp;<input type="hidden" name="searchtype" value="">&nbsp;<span class="navsearch_input"><label style="color: rgb(153, 153, 153);">Search product...</label><input type="text" name="searchword" size="20"></span>&nbsp;<input class="searchimage" type="image" src="images/ico_head_btnsearch.png"></form></div>
-	</header>
-		
-	<div id="allmap"></div>
-
-		
-
+{% block content %}
 <div class="inside-page">
 
     <div class="page-sidebar" id="pageSidebar">
@@ -197,8 +53,8 @@ header {  }
 								<li style="padding: 5px 0px 0px 108px; margin:0px 0px;"><span>Order TEL</span>{{ company.order_num }}<div style="clear:both;"></div></li>
 								<li style="padding: 5px 0px 0px 108px; margin:0px 0px;"><span>Fax</span>{{ company.contact_num }}<div style="clear:both;"></div></li>
 								<li style="padding: 5px 0px 0px 108px; margin:0px 0px;"><span>Postcode</span>{{ company.postcode }}<div style="clear:both;"></div></li>
-								<li style="padding: 5px 0px 0px 108px; margin:0px 0px;"><span>E-mail</span>{{ company.email }}<div style="clear:both;"></div></li>
-								<li style="padding: 5px 0px 0px 108px; margin:0px 0px;"><span>Website</span>{{ company.website }}<div style="clear:both;"></div></li>
+								<li style="padding: 5px 0px 0px 108px; margin:0px 0px;"><span>E-mail</span><a href="mailto:{{ company.email }}">{{ company.email }}</a><div style="clear:both;"></div></li>
+								<li style="padding: 5px 0px 0px 108px; margin:0px 0px;"><span>Website</span><a href="{{ company.website }}">{{ company.website }}</a><div style="clear:both;"></div></li>
 								<li style="padding: 5px 0px 0px 108px; margin:0px 0px;"><span>Address</span>{{ company.address }}<div style="clear:both;"></div></li>
 							</ul>
 						</dd>
@@ -229,42 +85,34 @@ header {  }
     <div class="clear"></div>
 </div>
 
+{% endblock %}
 
-<footer>
-	<div class="foot-inner float-fix" id="footInner">
-
-		<div class="foot-left" style="height: 83px;">
-			<div class="left-align-fix" style="margin-bottom: -35px;"></div>
-			<div class="foot-left-inner">
-				<p><img src="images/7.png" id="foot-left-logo" alt="机械设备"></p>
-				<div>机械设备公司</div>	
-			</div>		
-		</div>
-
-		<div class="foot-right">
-		
-			<p class="foot-nav">
-				<a href="http://www.metinfo.cn/demo/m1511/309/company/company7.html" title="公司简介">公司简介</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/company/company8.html" title="企业文化">企业文化</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/company/company10.html" title="销售网络">销售网络</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/company/company11.html" title="资质认证">资质认证</a><span>|</span><a href="http://www.metinfo.cn/demo/m1511/309/service/service25.html" title="联系我们">联系我们</a>
-			</p>
-				
-			<div class="foot-copyright">
-				<p>机械设备 版权所有 2008-2012 湘ICP备8888888    本页面内容为网站演示数据，前台页面内容都可以在后台修改。</p>
-				<p></p>
-				<!--以下是版权信息，购买商业授权之后方可去除！-->
-				<p>
-					Powered&nbsp;by&nbsp;<a href="http://www.metinfo.cn/" target="_blank" title="企业网站管理系统">MetInfo&nbsp;5.3.1</a>
-					©2008-2015&nbsp;
-					<a href="http://www.metinfo.cn/" target="_blank" title="企业网站建设">www.metinfo.cn</a>
-				</p>
-				<!--版权信息结束-->	
-			</div>
-			
-		</div>
-	</div>	
-</footer>
-<script src="js/banner.js" type="text/javascript"></script>
-<script src="js/marquee.js" type="text/javascript"></script>
-<script src="js/fun.inc.js" type="text/javascript"></script>
+{% block additional %}
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+<style>
+	body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+	#allmap {height: 400px;width:100%;overflow: hidden;}
+	#result {width:100%;font-size:12px;}
+	#allmap dl, #allmap dt, #allmap dd, #allmap ul, #allmap li{
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	#allmap dt{
+		font-size:14px;
+		font-family:"微软雅黑";
+		font-weight:bold;
+		border-bottom:1px dotted #000;
+		padding:5px 0 5px 5px;
+		margin:5px 0;
+	}
+	#allmap dd{
+		padding:5px 0 0 5px;
+	}
+	#allmap li{
+		line-height:28px;
+	}
+</style>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=URfmP7zzYwdkz2jq0m2R3vnx"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
 <script type="text/javascript">
@@ -276,7 +124,7 @@ header {  }
 	
 	var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
 	                '<img src="../img/logo.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
-	                'Address: {{company.address}}<br/>TEL: {{company.contact_num}}<br/>Email：{{company.email}}<br/>Contact Name: {{company.contact_name}}<br/>' +
+	                'Address: {{company.address}}<br/>TEL: {{company.contact_num}}<br/>Email：<a href="mailto:{{ company.email }}">{{company.email}}</a><br/>Contact Name: {{company.contact_name}}<br/>' +
 	              '</div>';
 	
 	//创建检索信息窗口对象
@@ -300,5 +148,4 @@ header {  }
 	searchInfoWindow.open(marker);
 </script>
 
-
-</body></html>
+{% endblock %}

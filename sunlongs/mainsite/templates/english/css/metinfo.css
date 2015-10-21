@@ -45,7 +45,7 @@ header {background: #fff;}
 		.head-nav-list1, .head-nav-list2 {display: block; _display:inline; _zoom:1; height: 100%; padding: 0 24px 0 25px; line-height: 35px;}
 		.head-nav-list1 {text-align: center; border: 1px solid #405b78; border-width: 0 1px; color: #fff;}		
 		.head-nav-list2 {color: #333;}
-		.head-nav-list2:hover {background: url(../bg_subNav_hover.png) 12px center no-repeat; color: #c00000}
+		.head-nav-list2:hover {background: url(../images/bg_subNav_hover.png) 12px center no-repeat; color: #c00000}
 		.nav-list1-hover {background-color: #374E67; border-color: #334960;}
 		.nav-current {background-color: #c00000;}
 	.head-search, .head-search .navsearch_input {position: relative;}
@@ -154,7 +154,7 @@ footer {border-top: 1px solid #071017; background-color: #303942;}
 			.foot-links-content .large img {width: 120px; height: 60px;}
 
 /*** 内页侧栏 ***/
-.page-sidebar {position: relative; z-index: 6; float: left; width: 200px; margin: -35px 15px 15px 0;}
+.page-sidebar {position: relative; z-index: 6; float: left; width: 200px; /* tongkai -35px */ margin: 15px 15px 15px 0;}
 	.page-sidebar-title {border: 1px solid #405b78; border-bottom: none; background-color: #fff; color: #0e4b5e;}
 		.sidebar-title-inner {margin: 0 15px; padding: 15px 0; line-height: 1.5; text-indent: 15px; word-break: break-all; background: url(../images/bg_sidebar_title.gif) left center no-repeat;}
 		.sidebar-title-inner h2 {font-size: 18px;}

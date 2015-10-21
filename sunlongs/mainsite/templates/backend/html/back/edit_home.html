@@ -280,13 +280,13 @@
 	                                	<span class="icon edit">
 	                                    	<i class="gallery-edit"></i>
 	                                	</span>
-		                                <form class="delete_image_form" enctype="multipart/form-data" method="post" action="delete_image">
-			                                <input type="text" name="image_id" class="image_id" value="{{image.id}}" style="display:none;"/>
+		                                <form class="delete_image_form" enctype="multipart/form-data" method="post" action="delete_file">
+			                                <input type="text" name="file_id" class="image_id" value="{{image.id}}" style="display:none;"/>
 			                                <span class="icon trash">
 			                                    <i class="gallery-trash"></i>
 			                                </span>
 		                                </form>
-		                                <img src="{{ image.image }}" />
+		                                <img src="{{ image.file_info }}" />
 		                                <p class="title display_name">{{ image.display_name }}</p>
 		                                <p class="description" style="display:none;">{{ image.description }}</p>
 		                            </div>
@@ -296,26 +296,26 @@
 
                         <!-- new image button -->
                         <div class="span3 new-img">
-							<form class="upload_image_form" enctype="multipart/form-data" method="post" action="upload_image">
+							<form class="upload_image_form" enctype="multipart/form-data" method="post" action="upload_file">
 								<div class="image-upload">
 								    <label for="image_upload">
 								        <img src="img/new-gallery-img.png"/>
 								    </label>
-									<input id="image_upload" type="file" name="image" style="display:none;"/>
+									<input id="image_upload" type="file" name="file_info" style="display:none;"/>
 								</div>
 							</form>
                         </div>
                         
                         <!-- edit image pop up -->
                         <div class="popup hide image_popup">
-                        	<form class="edit_image_form" enctype="multipart/form-data" method="post" action="edit_image">
+                        	<form class="edit_image_form" enctype="multipart/form-data" method="post" action="edit_file">
 	                            <div class="pointer">
 	                                <div class="arrow"></div>
 	                                <div class="arrow_border"></div>
 	                            </div>
 	                            <i class="close-pop table-delete"></i>
 	                            <h5>编辑图片</h5>
-	                            <input type="text" name="image_id" class="popup_image_id" style="display:none;" />
+	                            <input type="text" name="file_id" class="popup_image_id" style="display:none;" />
 	                            <input type="text" name="display_name" class="inline-input popup_display_name" placeholder="显示名" />
 	                            <div class="popup_description">
 	                                <h6>描述</h6>

@@ -1,228 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>双龙泵业 Admin - Gallery</title>
-    
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-    <!-- bootstrap -->
-    <link href="css/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
-    <link href="css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+{% extends "backend/html/common/common.html" %}
 
-    <!-- global styles -->
-    <link rel="stylesheet" type="text/css" href="css/layout.css" />
-    <link rel="stylesheet" type="text/css" href="css/elements.css" />
-    <link rel="stylesheet" type="text/css" href="css/icons.css" />
+{% block siderbar_active_gallery %}class="active"{% endblock %}
+{% block siderbar_arrow_gallery %}
+	<div class="pointer">
+	    <div class="arrow"></div>
+	    <div class="arrow_border"></div>
+	</div>
+{% endblock %}
 
-    <!-- libraries -->
-    <link href="css/lib/font-awesome.css" type="text/css" rel="stylesheet" />
-    
-    <!-- this page specific styles -->
-    <link rel="stylesheet" href="css/compiled/gallery.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/compiled/tables.css" type="text/css" media="screen" />
-
-    <!-- open sans font -->
-    <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-<body>
-
-    <!-- navbar -->
-    <div class="navbar navbar-inverse">
-        <div class="navbar-inner">
-            <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-            <a class="brand" href="index.html"><img src="img/logo.png" /></a>
-
-            <ul class="nav pull-right">                
-                <li class="hidden-phone">
-                    <input class="search" type="text" />
-                </li>
-                <li class="notification-dropdown hidden-phone">
-                    <a href="#" class="trigger">
-                        <i class="icon-warning-sign"></i>
-                        <span class="count">8</span>
-                    </a>
-                    <div class="pop-dialog">
-                        <div class="pointer right">
-                            <div class="arrow"></div>
-                            <div class="arrow_border"></div>
-                        </div>
-                        <div class="body">
-                            <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
-                            <div class="notifications">
-                                <h3>You have 6 new notifications</h3>
-                                <a href="#" class="item">
-                                    <i class="icon-signin"></i> New user registration
-                                    <span class="time"><i class="icon-time"></i> 13 min.</span>
-                                </a>
-                                <a href="#" class="item">
-                                    <i class="icon-signin"></i> New user registration
-                                    <span class="time"><i class="icon-time"></i> 18 min.</span>
-                                </a>
-                                <a href="#" class="item">
-                                    <i class="icon-envelope-alt"></i> New message from Alejandra
-                                    <span class="time"><i class="icon-time"></i> 28 min.</span>
-                                </a>
-                                <a href="#" class="item">
-                                    <i class="icon-signin"></i> New user registration
-                                    <span class="time"><i class="icon-time"></i> 49 min.</span>
-                                </a>
-                                <a href="#" class="item">
-                                    <i class="icon-download-alt"></i> New order placed
-                                    <span class="time"><i class="icon-time"></i> 1 day.</span>
-                                </a>
-                                <div class="footer">
-                                    <a href="#" class="logout">View all notifications</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="notification-dropdown hidden-phone">
-                    <a href="#" class="trigger">
-                        <i class="icon-envelope-alt"></i>
-                    </a>
-                    <div class="pop-dialog">
-                        <div class="pointer right">
-                            <div class="arrow"></div>
-                            <div class="arrow_border"></div>
-                        </div>
-                        <div class="body">
-                            <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
-                            <div class="messages">
-                                <a href="#" class="item">
-                                    <img src="img/contact-img.png" class="display" />
-                                    <div class="name">Alejandra Galván</div>
-                                    <div class="msg">
-                                        There are many variations of available, but the majority have suffered alterations.
-                                    </div>
-                                    <span class="time"><i class="icon-time"></i> 13 min.</span>
-                                </a>
-                                <a href="#" class="item">
-                                    <img src="img/contact-img2.png" class="display" />
-                                    <div class="name">Alejandra Galván</div>
-                                    <div class="msg">
-                                        There are many variations of available, have suffered alterations.
-                                    </div>
-                                    <span class="time"><i class="icon-time"></i> 26 min.</span>
-                                </a>
-                                <a href="#" class="item last">
-                                    <img src="img/contact-img.png" class="display" />
-                                    <div class="name">Alejandra Galván</div>
-                                    <div class="msg">
-                                        There are many variations of available, but the majority have suffered alterations.
-                                    </div>
-                                    <span class="time"><i class="icon-time"></i> 48 min.</span>
-                                </a>
-                                <div class="footer">
-                                    <a href="#" class="logout">View all messages</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
-                        {{ account_name }}
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="personal-info.html">个人信息</a></li>
-                    </ul>
-                </li>
-                <li class="settings hidden-phone">
-                    <a href="personal-info.html" role="button">
-                        <i class="icon-cog"></i>
-                    </a>
-                </li>
-                <li class="settings hidden-phone">
-                    <a href="signin.html" role="button">
-                        <i class="icon-share-alt"></i>
-                    </a>
-                </li>
-            </ul>            
-        </div>
-    </div>
-    <!-- end navbar -->
-
-    <!-- sidebar -->
-    <div id="sidebar-nav">
-        <ul id="dashboard-menu">
-            <li>
-                <a href="index.html">
-                    <i class="icon-home"></i>
-                    <span>总览</span>
-                </a>
-            </li>
-            <li>
-                <a class="dropdown-toggle" href="#">
-                    <i class="icon-edit"></i>
-                    <span>页面编辑</span>
-                    <i class="icon-chevron-down"></i>
-                </a>
-                <ul class="submenu">
-                    <li><a href="edit/base.html">基本信息</a></li>
-                    <li><a href="edit/company.html">公司信息</a></li>
-                    <li><a href="edit/product.html">产品信息</a></li>
-                </ul>
-            </li>
-            <li>
-            	<a href="news.html">
-            		<i class="icon-volume-up"></i>
-            		<span>发布新闻</span>
-            	</a>
-            </li>
-            <li>
-                <div class="pointer">
-                    <div class="arrow"></div>
-                    <div class="arrow_border"></div>
-                </div>
-                <a href="gallery.html">
-                    <i class="icon-picture"></i>
-                    <span>素材编辑</span>
-                </a>
-            </li>
-            <li>
-                <a href="tables.html">
-                    <i class="icon-th-large"></i>
-                    <span>查收邮件</span>
-                </a>
-            </li>
-            <li>
-                <a href="personal-info.html">
-                    <i class="icon-cog"></i>
-                    <span>设置</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <!-- end sidebar -->
-
-
+{% block content %}
 	<!-- main container -->
     <div class="content">
-        
-        <!-- settings changer -->
-        <div class="skins-nav">
-            <a href="#" class="skin first_nav selected">
-                <span class="icon"></span><span class="text">Default</span>
-            </a>
-            <a href="#" class="skin second_nav" data-file="css/skins/dark.css">
-                <span class="icon"></span><span class="text">Dark skin</span>
-            </a>
-            <a href="#" class="skin second_nav">
-                <span class="icon"></span><span class="text">Black skin</span>
-            </a>
-        </div>
         
         <!-- article edit -->
         <div class="container-fluid">
@@ -339,10 +127,10 @@
                 </div>
                 <!-- end article edit -->
         
-             <!-- blank state -->
-             <div class="no-gallery">
+             <!-- images edit -->
+             <div class="no-gallery image-manage-edit">
                 <div class="row-fluid header">
-                    <h3>图片管理（首页图片推荐大小1920 * 540）</h3>
+                    <h3>图片管理</h3>
                 </div>
 
                 <!-- gallery wrapper -->
@@ -355,16 +143,42 @@
 	                                	<span class="icon edit">
 	                                    	<i class="gallery-edit"></i>
 	                                	</span>
-	                                	<input type="text" name="type" class="inline-input image_type" value="{{ image.type }}" style="display:none;" readonly />
-		                                <form class="delete_image_form" enctype="multipart/form-data" method="post" action="delete_image">
-			                                <input type="text" name="image_id" class="image_id" value="{{image.id}}" style="display:none;"/>
+	                                	
+	                                	<!-- edit image pop up -->
+				                        <div class="popup hide image_popup">
+				                        	<form class="edit_image_form" enctype="multipart/form-data" method="post" action="edit_file">
+					                            <div class="pointer">
+					                                <div class="arrow"></div>
+					                                <div class="arrow_border"></div>
+					                            </div>
+					                            <i class="close-pop table-delete"></i>
+					                            <h5>编辑图片  
+						                            <span class="label label-success popup_image_type_show">{{image.type}}</span>
+						                            <span class="label label-primary popup_image_tag_show">{{image.tag}}</span>
+					                            </h5>
+					                            <input type="text" name="file_id" class="popup_image_id" style="display:none;" value="{{image.id}}" />
+					                            <input type="text" name="media_type" style="display:none;" value="image" value="{{image.media_type}}" readonly />
+					                            <input type="text" name="type" class="inline-input popup_image_type" style="display:none;" value="{{image.type}}" readonly />
+					                            <input type="text" name="tag" class="inline-input popup_image_tag" style="display:none;" value="{{image.tag}}" readonly />
+					                            <input type="text" name="display_name" class="inline-input popup_display_name" placeholder="显示名" value="{{image.display_name}}" />
+					                            <input type="text" class="inline-input popup_image_link" placeholder="图片链接" value="{{image.file_info}}" />
+					                            <div class="popup_description">
+					                                <h6>描述</h6>
+					                                <textarea name="description">{{image.description}}</textarea>
+					                                <input type="submit" value="保存" class="btn-glow primary" />
+					                            </div>
+						                    </form>
+				                        </div>
+				                        <!-- end image popup -->
+	                                	
+		                                <form class="delete_image_form" enctype="multipart/form-data" method="post" action="delete_file">
+			                                <input type="text" name="file_id" class="image_id" value="{{image.id}}" style="display:none;"/>
 			                                <span class="icon trash">
 			                                    <i class="gallery-trash"></i>
 			                                </span>
 		                                </form>
-		                                <img src="{{ image.image }}" />
+		                                <img src="{{ image.file_info }}" />
 		                                <p class="title display_name">{{ image.display_name }}</p>
-		                                <p class="description" style="display:none;">{{ image.description }}</p>
 		                            </div>
 		                        </div>
 							{% endfor %}
@@ -372,52 +186,119 @@
 
                         <!-- new image button -->
                         <div class="span3 new-img">
-							<form class="upload_image_form" enctype="multipart/form-data" method="post" action="upload_image">
+							<form class="upload_image_form" enctype="multipart/form-data" method="post" action="upload_file">
 								<div class="image-upload">
 								    <label for="image_upload">
 								        <img src="img/new-gallery-img.png"/>
 								    </label>
-									<input id="image_upload" type="file" name="image" style="display:none;"/>
+									<input id="image_upload" type="file" name="file_info" style="display:none;"/>
+	                            	<input type="text" name="media_type" style="display:none;" value="image" readonly />
 								</div>
 							</form>
                         </div>
                         
-                        <!-- edit image pop up -->
-                        <div class="popup hide image_popup">
-                        	<form class="edit_image_form" enctype="multipart/form-data" method="post" action="edit_image">
-	                            <div class="pointer">
-	                                <div class="arrow"></div>
-	                                <div class="arrow_border"></div>
-	                            </div>
-	                            <i class="close-pop table-delete"></i>
-	                            <h5>编辑图片  <span class="label label-success popup_image_type_show"></span></h5>
-	                            <input type="text" name="image_id" class="popup_image_id" style="display:none;" />
-	                            <input type="text" name="type" class="inline-input popup_image_type" style="display:none;" readonly />
-	                            <input type="text" name="display_name" class="inline-input popup_display_name" placeholder="显示名" />
-	                            <div class="popup_description">
-	                                <h6>描述</h6>
-	                                <textarea name="description"></textarea>
-	                                <input type="submit" value="保存" class="btn-glow primary" />
-	                            </div>
-		                    </form>
-                        </div>
+                        
                       </div>
 
                     </div>
                 </div>
                 
-                <!-- end gallery wrapper -->
+                <!-- end images edit -->
+                
+                
+                <!-- files edit -->
+             <div class="no-gallery file-manage-edit">
+                <div class="row-fluid header">
+                    <h3>文件管理</h3>
+                </div>
+
+                <!-- gallery wrapper -->
+                <div class="gallery-wrapper">
+                    <div class="row gallery-row">
+                        {% if files %}
+							{% for file in files %}
+								<div class="span3 img-container">
+		                            <div class="img-box">
+	                                	<span class="icon edit">
+	                                    	<i class="gallery-edit"></i>
+	                                	</span>
+	                                	<!-- file pop up -->
+				                        <div class="popup hide file_popup">
+				                        	<form class="edit_file_form" enctype="multipart/form-data" method="post" action="edit_file">
+					                            <div class="pointer">
+					                                <div class="arrow"></div>
+					                                <div class="arrow_border"></div>
+					                            </div>
+					                            <i class="close-pop table-delete"></i>
+					                            <h5>编辑文件  
+						                            <span class="label label-success popup_file_type_show">{{file.type}}</span>
+						                            <span class="label label-primary popup_file_tag_show">{{file.tag}}</span>
+					                            </h5>
+					                            <input type="text" name="file_id" class="popup_file_id" style="display:none;" value="{{file.id}}" />
+					                            <input type="text" name="media_type" style="display:none;" value="file" value="{{file.media_type}}" readonly />
+					                            <input type="text" name="type" class="inline-input popup_file_type" style="display:none;" value="{{file.type}}" readonly />
+					                            <input type="text" name="tag" class="inline-input popup_file_tag" style="display:none;" value="{{file.tag}}" readonly />
+					                            <input type="text" name="display_name" class="inline-input popup_display_name" placeholder="显示名" value="{{file.display_name}}" />
+					                            <input type="text" class="inline-input popup_file_link" placeholder="图片链接" value="{{file.file_info}}"/>
+					                            <div class="popup_description">
+					                                <h6>描述</h6>
+					                                <textarea name="description">{{file.description}}</textarea>
+					                                <input type="submit" value="保存" class="btn-glow primary" />
+					                            </div>
+						                    </form>
+				                        </div>
+				                        <!-- end file popup -->
+		                                <form class="delete_file_form" enctype="multipart/form-data" method="post" action="delete_file">
+			                                <input type="text" name="file_id" class="file_id" value="{{file.id}}" style="display:none;"/>
+			                                <span class="icon trash">
+			                                    <i class="gallery-trash"></i>
+			                                </span>
+		                                </form>
+		                                <img src="img/no-img-gallery.png"/>
+		                                <p class="title display_name">{{ file.display_name }}</p>
+		                            </div>
+		                        </div>
+							{% endfor %}
+						{% endif %}
+
+                        <!-- new file button -->
+                        <div class="span3 new-img">
+							<form class="upload_file_form" enctype="multipart/form-data" method="post" action="upload_file">
+								<div class="file-upload">
+								    <label for="file_upload">
+								        <img src="img/new-gallery-img.png"/>
+								    </label>
+									<input id="file_upload" type="file" name="file_info" style="display:none;"/>
+	                            	<input type="text" name="media_type" style="display:none;" value="file" readonly />
+								</div>
+							</form>
+                        </div>
+                        
+                        
+                      </div>
+
+                    </div>
+                </div>
+                
+                <!-- end files edit -->
+                
 
             </div>
         </div>
     </div>
     <!-- end main container -->
+{% endblock %}
 
-
+{% block additional %}
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="css/compiled/gallery.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/compiled/tables.css" type="text/css" media="screen" />
 	<!-- this page scripts -->
     <script src="js/jquery-latest.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/theme.js"></script>
+	<script charset="utf-8" src="js/editor/kindeditor.js"></script>
+	<script charset="utf-8" src="js/lang/zh_CN.js"></script>
 	<script>
 	 $(document).ready(function() {
 
@@ -426,7 +307,9 @@
         KindEditor.ready(function(K) {
         	var options = {
         			themesPath: 'css/editor/',
-        	        filterMode : true
+        	        filterMode : true,
+        	        uploadJson : '../ajax_upload_file',
+        	        filePostName : 'file_info'
         	};
         	editor = K.create('#editor_id', options);
         	editor.sync();
@@ -468,19 +351,14 @@
         /* image */
 		 // edit image
 		 var image_popup_location = $(".image_popup").offset();
-		 $(".content").delegate(".edit", "click", function() {
-			 // offset is global. position is related to the father.
-			 var image_id = $(this).parent().find(".image_id").val();
-			 var image_type = $(this).parent().find(".image_type").val();
-			 var display_name = $(this).parent().find(".display_name").text();
-			 var description = $(this).parent().find(".description").text();
-			 var location = $(this).offset();
-			 $(".image_popup").find(".popup_image_id").val(image_id);
-			 $(".image_popup").find(".popup_image_type").val(image_type);
-			 $(".image_popup").find(".popup_image_type_show").text(image_type);
-			 $(".image_popup").find(".popup_display_name").val(display_name);
-			 $(".image_popup").find(".popup_description").find("textarea").text(description);
-			 $(".image_popup").css({'top': -25, 'left': location.left - 160}).show();
+		 $(".image-manage-edit").delegate(".edit", "click", function() {
+			 var url_link_list = window.location.href.split("/");
+			 var url_link = url_link_list.slice(0, url_link_list.length-1).join("/") + "/";
+			 var image_link = url_link + $(this).parent().find(".popup_image_link").val();
+			 $(this).parent().find(".popup_image_link").val(image_link);
+			 
+			 var location = $(this).position();
+			 $(this).parent().find(".image_popup").css({'top': location.top - 90, 'left': location.left + 60}).show();
 		 });
 		 
 		 $(".content").delegate(".trash", "click", function(){
@@ -496,10 +374,36 @@
 		 	 $(".upload_image_form").submit();
 		 });
 		 /* end image */
+		 
+		 /* file */
+		 // edit file
+		 var file_popup_location = $(".file_popup").offset();
+		 $(".file-manage-edit").delegate(".edit", "click", function() {
+			 var url_link_list = window.location.href.split("/");
+			 var url_link = url_link_list.slice(0, url_link_list.length-1).join("/") + "/";
+			 var file_link = url_link + $(this).parent().find(".popup_file_link").val();
+			 $(this).parent().find(".popup_file_link").val(file_link);
+			 
+			 var location = $(this).position();
+			 $(this).parent().find(".file_popup").css({'top': location.top - 90, 'left': location.left + 60}).show();
+		 });
+		 
+		 $(".content").delegate(".trash", "click", function(){
+			 var file_id = $(this).parent().find(".file_id").val();
+			 $(this).parent().submit();
+		 });
+		 
+		 $(".content").delegate(".close-pop", "click", function() {
+			 $(this).parent().parent().hide();
+		 });
+		 
+		 $(".content").delegate("#file_upload", "change", function() {
+		 	 $(".upload_file_form").submit();
+		 });
+		 /* end file */
+		 
+		 
 	 });
 	</script>
-	<script charset="utf-8" src="js/editor/kindeditor.js"></script>
-	<script charset="utf-8" src="js/lang/zh_CN.js"></script>
 
-</body>
-</html>
+{% endblock %}
