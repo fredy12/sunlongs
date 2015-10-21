@@ -124,7 +124,7 @@
 	map.enableScrollWheelZoom();
 	
 	var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
-	                '<img src="../img/logo.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
+	                '<img src="images/ditu-pic1.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
 	                '地址：{{company.address}}<br/>电话：{{company.contact_num}}<br/>Email：<a href="mailto:{{ company.email }}">{{company.email}}</a><br/>联系人：{{company.contact_name}}<br/>' +
 	              '</div>';
 	
@@ -132,7 +132,7 @@
 	var searchInfoWindow = null;
 	searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
 			title  : "{{company.full_name}}",      //标题
-			width  : 290,             //宽度
+			width  : 350,             //宽度
 			height : 105,              //高度
 			panel  : "panel",         //检索结果面板
 			enableAutoPan : true,     //自动平移
