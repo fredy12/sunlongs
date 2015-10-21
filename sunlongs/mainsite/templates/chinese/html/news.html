@@ -45,7 +45,7 @@
 						{% elif news.create_time|naturalday == "yesterday" %}
 						<img class="listtop" src="images/news.gif" alt="最新">
 						{% endif %}
-						<p>{{news.intro}}</p>
+						<p>{% autoescape off %} {{ news.intro }} {% endautoescape %}</p>
 					</li>
 					{% endfor %}
 				</ul>

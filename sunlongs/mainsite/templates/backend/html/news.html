@@ -75,7 +75,7 @@
 			                                        <input type="button" class="btn btn-link news_title edit_news" style="font-size:12px;" value="{{ news.title }}" />
 			                                    </td>
 			                                    <td class="intro">
-			                                    {{ news.intro }}
+			                                    {% autoescape off %} {{ news.intro }} {% endautoescape %}
 			                                    </td>
 			                                    <td class="news_content" style="display:none;">
 			                                    {{ news.content }}
