@@ -212,7 +212,7 @@
     	$("#dashboard-menu .dropdown-toggle").click();
     	
     	$(".content").delegate(".delete_product_type", "click", function(){
-    		$(".delete_product_type_form").submit();
+    		$(this).siblings(".delete_product_type_form").submit();
     	});
 	});
 	</script>

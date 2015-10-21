@@ -342,7 +342,7 @@
         
         
         $(".content").delegate(".delete_news", "click", function() {
-        	$(this).parent().find(".delete_news_form").submit();
+        	$(this).siblings(".delete_news_form").submit();
         });
         
         $(".content").delegate(".close-pop", "click", function() {

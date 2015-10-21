@@ -180,7 +180,7 @@ footer {border-top: 1px solid #071017; background-color: #303942;}
 		.mark-fold {background-position: -31px -150px;}
 
 /*** 内页内容部分 ***/
-.page-content {float: left; width: 785px;}
+.page-content {float: left; width: 785px; /*tongkai*/ padding-bottom: 60px;}
 	.page-content h3 a:hover, .page-content-title a:hover, .page-content li a:hover {color: #000;}
 	.page-content-title {margin: 10px 0 5px 10px; border-bottom: 3px solid #4f7dad;}
 	.page-content-title h3 {float: left; height: 100%; margin-bottom: -3px; padding: 0 10px 4px 6px; font-weight: normal; font-size: 18px; color: #405b78; border-bottom: 3px solid #405b78;}	

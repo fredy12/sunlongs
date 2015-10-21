@@ -221,6 +221,10 @@ def edit_product_type(request):
 @login_required
 def delete_product_type(request):
     product_type_id = request.POST['id']
+    # delete all the products before delete productType
+    products = ProductInfo.objects.filter(type__id=product_type_id)
+    for product in products:
+        product.delete()
     product_type = ProductType.objects.get(id=product_type_id)
     product_type.delete()
     return HttpResponseRedirect('product_type.html')
