@@ -153,3 +153,8 @@ def contact(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
     return render(request, 'chinese/html/contact.html', {'rolling_images': rolling_images, 'logo_image': logo_image, 'company': company,
                                                          'product_types': product_types})
+
+
+@record_visit
+def sitemap(request):
+    return render(request, 'chinese/html/sitemap.html', {})

@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^order.html$', english_views.order, name='order'),
     url(r'^service.html$', english_views.service, name='service'),
     url(r'^contact.html$', english_views.contact, name='contact'),
+    url(r'^sitemap.html$', english_views.sitemap, name='sitemap'),
     url( r'^js/(?P<path>.*)$', 'django.views.static.serve',
             { 'document_root': TEMPLATE_DIRS+'/english/js/' }
     ),

@@ -153,3 +153,7 @@ def contact(request):
 
     return render(request, 'english/html/contact.html', {'rolling_images': rolling_images, 'logo_image': logo_image, 'company': company,
                                                          'product_types': product_types})
+
+@record_visit
+def sitemap(request):
+    return render(request, 'english/html/sitemap.html', {})
