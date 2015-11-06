@@ -55,9 +55,9 @@ def record_visit(func):
 
 def reject_not_slongpump(func):
     def inner_func(*args, **kwargs):
-        request = args[0]
-        if request.get_host() != 'www.slongpump.com':
-            return HttpResponseRedirect('http://www.slongpump.com/cn/index.html')
+        #request = args[0]
+        #if request.get_host() != 'www.slongpump.com':
+        #    return HttpResponseRedirect('http://www.slongpump.com/cn/index.html')
         return func(*args, **kwargs)
     return inner_func
 
