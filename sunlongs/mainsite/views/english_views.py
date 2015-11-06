@@ -4,7 +4,7 @@ Created on 2015-9-23
 
 @author: tongkai.ytk(ziyu) <tongkai.ytk@alibaba-inc.com>
 '''
-from mainsite.lib.utils import record_visit
+from mainsite.lib.utils import record_visit, reject_not_slongpump
 from mainsite.models import ArticleInfo, FileInfo, CompanyInfo, ProductInfo, \
     ProductType, FileInfoForm, ArticleInfoForm, CompanyInfoForm, ProductInfoForm, \
     ProductTypeForm, NewsInfo, NewsInfoForm
@@ -32,6 +32,7 @@ def _get_common_info():
     return logo_image, rolling_images, company, product_types
 
 
+@reject_not_slongpump
 @record_visit
 def index(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -46,6 +47,7 @@ def index(request):
                                                        'all_news': all_news})
 
 
+@reject_not_slongpump
 @record_visit
 def company(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -53,6 +55,7 @@ def company(request):
                                                          'product_types': product_types})
 
 
+@reject_not_slongpump
 @record_visit
 def culture(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -60,6 +63,7 @@ def culture(request):
                                                          'product_types': product_types})
 
 
+@reject_not_slongpump
 @record_visit
 def application(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -67,6 +71,7 @@ def application(request):
                                                          'product_types': product_types})
 
 
+@reject_not_slongpump
 @record_visit
 def certificate(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -75,6 +80,7 @@ def certificate(request):
                                                          'product_types': product_types, 'certificate_images': certificate_images})
 
 
+@reject_not_slongpump
 @record_visit
 def product(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -97,6 +103,7 @@ def product(request):
                                                          'max_page_num': page_count})
 
 
+@reject_not_slongpump
 @record_visit
 def product_detail(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -109,6 +116,7 @@ def product_detail(request):
                                                                 'product_types': product_types, 'product': product})
 
 
+@reject_not_slongpump
 @record_visit
 def news(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -125,6 +133,7 @@ def news(request):
                                                       'now_date': datetime.now()})
 
 
+@reject_not_slongpump
 @record_visit
 def news_detail(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -137,16 +146,19 @@ def news_detail(request):
                                                              'product_types': product_types, 'news': news})
 
 
+@reject_not_slongpump
 @record_visit
 def order(request):
     return render(request, 'english/html/order.html', {})
 
 
+@reject_not_slongpump
 @record_visit
 def service(request):
     return render(request, 'english/html/service.html', {})
 
 
+@reject_not_slongpump
 @record_visit
 def contact(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
@@ -154,6 +166,7 @@ def contact(request):
     return render(request, 'english/html/contact.html', {'rolling_images': rolling_images, 'logo_image': logo_image, 'company': company,
                                                          'product_types': product_types})
 
+@reject_not_slongpump
 @record_visit
 def sitemap(request):
     return render(request, 'english/html/sitemap.html', {})

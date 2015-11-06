@@ -9,6 +9,7 @@ import memcache
 import logging
 
 from django.conf import settings
+from django.http.response import HttpResponseRedirect
 
 
 logger = logging.getLogger(__name__)
@@ -50,3 +51,13 @@ def record_visit(func):
         print mc.get(settings.COUNTER_KEY)
         return func(*args, **kwargs)
     return inner_func
+
+
+def reject_not_slongpump(func):
+    def inner_func(*args, **kwargs):
+        request = args[0]
+        if request.get_host() != 'www.slongpump.com':
+            return HttpResponseRedirect('http://www.slongpump.com/cn/index.html')
+        return func(*args, **kwargs)
+    return inner_func
+

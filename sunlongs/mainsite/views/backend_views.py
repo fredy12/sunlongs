@@ -12,6 +12,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from mainsite.lib import file_lib
+from mainsite.lib.utils import reject_not_slongpump
 from mainsite.models import ArticleInfo, FileInfo, CompanyInfo, ProductInfo, VisitInfo, \
     ProductType, FileInfoForm, ArticleInfoForm, CompanyInfoForm, ProductInfoForm, \
     ProductTypeForm, NewsInfo, NewsInfoForm
@@ -31,6 +32,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+@reject_not_slongpump
 @login_required
 def index(request):
     #create_time__gte=now().date() + timedelta(days=-1)
@@ -78,6 +80,7 @@ def index(request):
 # edit base #
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def edit_base(request):
     rolling_images = FileInfo.objects.filter(type='基本信息', tag='首页滚动图片')
@@ -98,6 +101,7 @@ def edit_base(request):
 # edit company #
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def edit_company(request):
     if request.method == 'GET':
@@ -128,6 +132,7 @@ def edit_company(request):
 # edit product #
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def show_product(request):
     if request.method == 'GET':
@@ -152,6 +157,7 @@ def show_product(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def edit_product(request):
     product_id = request.POST.get('id')
@@ -178,6 +184,7 @@ def edit_product(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def delete_product(request):
     product_id = request.POST['id']
@@ -190,6 +197,7 @@ def delete_product(request):
 ## edit product type ##
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def product_type(request):
     chinese_product_types = ProductType.objects.filter(lang='chinese')
@@ -200,6 +208,7 @@ def product_type(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def edit_product_type(request):
     product_type_id = request.POST.get('id')
@@ -218,6 +227,7 @@ def edit_product_type(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def delete_product_type(request):
     product_type_id = request.POST['id']
@@ -233,6 +243,7 @@ def delete_product_type(request):
 
 ## news ##
 
+@reject_not_slongpump
 @login_required
 def news(request):
     # one page has 10 column
@@ -249,6 +260,7 @@ def news(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def set_news_status(request):
     lang = request.POST.get('lang', 'chinese')
@@ -259,6 +271,7 @@ def set_news_status(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def delete_news(request):
     news_id = request.POST['id']
@@ -268,6 +281,7 @@ def delete_news(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def edit_news(request):
     news_id = request.POST.get('id')
@@ -293,6 +307,7 @@ def edit_news(request):
 
 ##  gallery  ##
 
+@reject_not_slongpump
 @login_required
 def gallery(request):
     articles = ArticleInfo.objects.all().order_by('-create_time')
@@ -303,6 +318,7 @@ def gallery(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def new_article(request):
     # means add ariticle
@@ -316,6 +332,7 @@ def new_article(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def delete_article(request):
     article_id = request.POST['article_id']
@@ -325,6 +342,7 @@ def delete_article(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def edit_article(request):
     article_id = request.POST['article_id']
@@ -340,6 +358,7 @@ def edit_article(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def upload_file(request):
     request.POST['display_name'] = request.FILES['file_info'].name
@@ -349,6 +368,7 @@ def upload_file(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def ajax_upload_file(request):
     request.POST['display_name'] = request.FILES['file_info'].name
@@ -364,6 +384,7 @@ def ajax_upload_file(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def delete_file(request):
     file_lib.delete_file(request)
@@ -372,6 +393,7 @@ def delete_file(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 @login_required
 def edit_file(request):
     file_lib.edit_file(request)
@@ -381,12 +403,14 @@ def edit_file(request):
 
 ##  end of gallery  ##
 
+@reject_not_slongpump
 @login_required
 def email(request):
     context = {'account_name': settings.USER_NAME}
     return render(request, 'backend/html/email.html', context)
 
 
+@reject_not_slongpump
 @login_required
 def setting(request):
     context = {'account_name': settings.USER_NAME}
@@ -394,6 +418,7 @@ def setting(request):
 
 
 @csrf_exempt
+@reject_not_slongpump
 def admin_login(request):
     if request.method == 'GET':
         return render(request, 'backend/html/login.html', {})
@@ -415,6 +440,7 @@ def admin_login(request):
             return render(request, 'backend/html/login.html', {'error_msg': '登录失败，账号或密码不正确'})   #设置登录失败
 
 
+@reject_not_slongpump
 def admin_logout(request):
     logout(request)
     return HttpResponseRedirect('/admin/login.html')
@@ -435,6 +461,7 @@ def send_email(password):
 
 
 @csrf_exempt
+@reject_not_slongpump
 def forget_password(request):
     if request.method == 'GET':
         return render(request, 'backend/html/forget.html', {})
