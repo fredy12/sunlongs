@@ -118,7 +118,7 @@ class ProductInfo(models.Model):
     standard = models.CharField(max_length=50, null=True, blank=True)
     market = models.CharField(max_length=20, null=True, blank=True)
     name = models.CharField(max_length=50, null=True, blank=True)
-    pic = models.ImageField(upload_to='product/%Y/%m/')
+    pic = models.ImageField(upload_to='product/%Y/%m/', null=True, blank=True)
     pic_height = models.IntegerField(null=True, blank=True)
     pic_width = models.IntegerField(null=True, blank=True)
     thumbnail = models.ImageField(upload_to="product/thumbs/%Y/%m/", null=True, blank=True)

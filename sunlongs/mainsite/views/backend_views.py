@@ -175,11 +175,7 @@ def edit_product(request):
         old_thumbmini_path = ''
         if product.pic != '':
             # when input pic is null or blank, we will not delete the old one.
-            if request.POST.get('pic') == None or request.POST.get('pic') == '':
-                old_pic_path = ''
-                old_thumbnail_path = ''
-                old_thumbmini_path = ''
-            else:
+            if request.FILES.get('pic') != None and request.FILES.get('pic') != '':
                 old_pic_path = product.pic.path
                 old_thumbnail_path = product.thumbnail.path
                 old_thumbmini_path = product.thumbmini.path
