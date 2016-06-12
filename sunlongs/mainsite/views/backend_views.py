@@ -83,17 +83,17 @@ def index(request):
 @reject_not_slongpump
 @login_required
 def edit_base(request):
-    rolling_images = FileInfo.objects.filter(type='基本信息', tag='首页滚动图片')
-    logo_images = FileInfo.objects.filter(type='基本信息', tag='logo')
-    certificate_images = FileInfo.objects.filter(type='基本信息', tag='资质认证')
+    rolling_images = FileInfo.objects.filter(type='base', tag='rolling')
+    logo_images = FileInfo.objects.filter(type='base', tag='logo')
+    certificate_images = FileInfo.objects.filter(type='base', tag='certificate')
     return render(request, 'backend/html/edit/base.html', {'account_name': settings.USER_NAME,
                                                            'rolling_images': rolling_images,
                                                            'logo_images': logo_images,
                                                            'certificate_images': certificate_images,
-                                                           'type': '基本信息',
-                                                           'rolling_tag': '首页滚动图片',
+                                                           'type': 'base',
+                                                           'rolling_tag': 'rolling',
                                                            'logo_tag': 'logo',
-                                                           'certificate_tag': '资质认证'})
+                                                           'certificate_tag': 'certificate'})
 
 
 # end edit base #

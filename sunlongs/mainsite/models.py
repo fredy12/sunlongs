@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import os
 
 from django.db import models
@@ -46,11 +47,11 @@ class ArticleInfo(models.Model):
 class FileInfo(models.Model):
     id = models.AutoField(primary_key=True)
     file_info = models.FileField(upload_to='file/%Y/%m/')
-    image_height = models.IntegerField()
-    image_width = models.IntegerField()
-    thumbnail = models.ImageField(upload_to="file/thumbs/%Y/%m/")
-    thumbnail_height = models.IntegerField()
-    thumbnail_width = models.IntegerField()
+    image_height = models.IntegerField(null=True, blank=True)
+    image_width = models.IntegerField(null=True, blank=True)
+    thumbnail = models.ImageField(upload_to="file/thumbs/%Y/%m/", null=True, blank=True)
+    thumbnail_height = models.IntegerField(null=True, blank=True)
+    thumbnail_width = models.IntegerField(null=True, blank=True)
     display_name = models.CharField(max_length=100, null=True, blank=True)
     description = models.CharField(max_length=100, null=True, blank=True)
     media_type = models.CharField(default='image', max_length=50, null=True, blank=True)
@@ -69,12 +70,14 @@ class FileInfo(models.Model):
             # save the original size
             self.image_width, self.image_height = img.size
 
-            if self.tag == '首页滚动图片':
+            if self.tag == 'rolling':
                 thumb_size = (1663, 450)
             elif self.tag == 'logo':
                 thumb_size = (160, 40)
-            elif self.tag == '资质认证':
+            elif self.tag == 'certificate':
                 thumb_size = (278, 392)
+            else:
+                thumb_size = (self.image_width, self.image_height)
             img.thumbnail(thumb_size, Image.ANTIALIAS)
 
             # save the thumbnail to memory
@@ -113,7 +116,7 @@ class ProductInfo(models.Model):
     market = models.CharField(max_length=20, null=True, blank=True)
     name = models.CharField(max_length=50, null=True, blank=True)
     pic = models.ImageField(upload_to='product/%Y/%m/', null=True, blank=True)
-    thumbnail = models.ImageField(upload_to="product/thumbs/%Y/%m/")
+    thumbnail = models.ImageField(upload_to="product/thumbs/%Y/%m/", null=True, blank=True)
     model = models.CharField(max_length=50, null=True, blank=True)
     power = models.CharField(max_length=20, null=True, blank=True)
     flow = models.CharField(max_length=20, null=True, blank=True)

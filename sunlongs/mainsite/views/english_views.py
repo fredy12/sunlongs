@@ -21,10 +21,10 @@ logger = logging.getLogger(__name__)
 
 
 def _get_common_info():
-    logo_image = FileInfo.objects.filter(media_type='image', type='基本信息', tag='logo')
+    logo_image = FileInfo.objects.filter(media_type='image', type='base', tag='logo')
     if len(logo_image) != 0:
         logo_image = logo_image[0]
-    rolling_images = FileInfo.objects.filter(media_type='image', type='基本信息', tag='首页滚动图片')
+    rolling_images = FileInfo.objects.filter(media_type='image', type='base', tag='rolling')
     company = CompanyInfo.objects.filter(lang='english')
     if len(company) != 0:
         company = company[0]
@@ -75,7 +75,7 @@ def application(request):
 @record_visit
 def certificate(request):
     logo_image, rolling_images, company, product_types = _get_common_info()
-    certificate_images = FileInfo.objects.filter(media_type='image', type='基本信息', tag='资质认证')
+    certificate_images = FileInfo.objects.filter(media_type='image', type='base', tag='certificate')
     return render(request, 'english/html/certificate.html', {'rolling_images': rolling_images, 'logo_image': logo_image, 'company': company,
                                                          'product_types': product_types, 'certificate_images': certificate_images})
 
