@@ -2,6 +2,9 @@ import os
 
 from django.db import models
 from django import forms
+from PIL import Image
+from cStringIO import StringIO
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 # Create your models here.
 
@@ -42,7 +45,12 @@ class ArticleInfo(models.Model):
 
 class FileInfo(models.Model):
     id = models.AutoField(primary_key=True)
-    file_info = models.FileField(upload_to='file')
+    file_info = models.FileField(upload_to='file/%Y/%m/')
+    image_height = models.IntegerField()
+    image_width = models.IntegerField()
+    thumbnail = models.ImageField(upload_to="file/thumbs/%Y/%m/")
+    thumbnail_height = models.IntegerField()
+    thumbnail_width = models.IntegerField()
     display_name = models.CharField(max_length=100, null=True, blank=True)
     description = models.CharField(max_length=100, null=True, blank=True)
     media_type = models.CharField(default='image', max_length=50, null=True, blank=True)
@@ -50,7 +58,37 @@ class FileInfo(models.Model):
     tag = models.CharField(max_length=50, null=True, blank=True)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
-    
+
+    def save(self, *args, **kwargs):
+        super(FileInfo, self).save(*args,**kwargs)
+        if self.media_type == 'image':
+            img = Image.open(self.file_info)
+            if img.mode not in ('L', 'RGB'):
+                img = img.convert('RGB')
+
+            # save the original size
+            self.image_width, self.image_height = img.size
+
+            if self.tag == '首页滚动图片':
+                thumb_size = (1663, 450)
+            elif self.tag == 'logo':
+                thumb_size = (160, 40)
+            elif self.tag == '资质认证':
+                thumb_size = (278, 392)
+            img.thumbnail(thumb_size, Image.ANTIALIAS)
+
+            # save the thumbnail to memory
+            temp_handle = StringIO()
+            img.save(temp_handle, 'png')
+            temp_handle.seek(0) # rewind the file
+
+            # save to the thumbnail field
+            suf = SimpleUploadedFile(os.path.split(self.file_info.name)[-1],
+                                     temp_handle.read(),
+                                     content_type='image/png')
+            self.thumbnail.save(suf.name+'.png', suf, save=False)
+            self.thumbnail_width, self.thumbnail_height = img.size
+
     def delete(self,*args,**kwargs):
         if os.path.isfile(self.file_info.path):
             os.remove(self.file_info.path)
@@ -74,7 +112,8 @@ class ProductInfo(models.Model):
     standard = models.CharField(max_length=50, null=True, blank=True)
     market = models.CharField(max_length=20, null=True, blank=True)
     name = models.CharField(max_length=50, null=True, blank=True)
-    pic = models.ImageField(upload_to='product', null=True, blank=True)
+    pic = models.ImageField(upload_to='product/%Y/%m/', null=True, blank=True)
+    thumbnail = models.ImageField(upload_to="product/thumbs/%Y/%m/")
     model = models.CharField(max_length=50, null=True, blank=True)
     power = models.CharField(max_length=20, null=True, blank=True)
     flow = models.CharField(max_length=20, null=True, blank=True)
