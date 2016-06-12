@@ -91,10 +91,13 @@ class FileInfo(models.Model):
                                      content_type='image/png')
             self.thumbnail.save(suf.name+'.png', suf, save=False)
             self.thumbnail_width, self.thumbnail_height = img.size
+            super(FileInfo, self).save(*args,**kwargs)
 
     def delete(self,*args,**kwargs):
         if os.path.isfile(self.file_info.path):
             os.remove(self.file_info.path)
+        if os.path.isfile(self.thumbnail.path):
+            os.remove(self.thumbnail.path)
 
         super(FileInfo, self).delete(*args,**kwargs)
 
@@ -116,7 +119,14 @@ class ProductInfo(models.Model):
     market = models.CharField(max_length=20, null=True, blank=True)
     name = models.CharField(max_length=50, null=True, blank=True)
     pic = models.ImageField(upload_to='product/%Y/%m/', null=True, blank=True)
+    pic_height = models.IntegerField(null=True, blank=True)
+    pic_width = models.IntegerField(null=True, blank=True)
     thumbnail = models.ImageField(upload_to="product/thumbs/%Y/%m/", null=True, blank=True)
+    thumbnail_height = models.IntegerField(null=True, blank=True)
+    thumbnail_width = models.IntegerField(null=True, blank=True)
+    thumbmini = models.ImageField(upload_to="product/thumbs_mini/%Y/%m/", null=True, blank=True)
+    thumbmini_height = models.IntegerField(null=True, blank=True)
+    thumbmini_width = models.IntegerField(null=True, blank=True)
     model = models.CharField(max_length=50, null=True, blank=True)
     power = models.CharField(max_length=20, null=True, blank=True)
     flow = models.CharField(max_length=20, null=True, blank=True)
@@ -130,10 +140,57 @@ class ProductInfo(models.Model):
     introduction = models.TextField(null=True, blank=True)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
-    
+
+    def save(self, *args, **kwargs):
+        super(ProductInfo, self).save(*args,**kwargs)
+        img = Image.open(self.pic)
+        if img.mode not in ('L', 'RGB'):
+            img = img.convert('RGB')
+
+        # save the original size
+        self.pic_width, self.pic_height = img.size
+
+        # generate thumbnail
+        thumbnail_size = (500, 375)
+        img.thumbnail(thumbnail_size, Image.ANTIALIAS)
+
+        # save the thumbnail to memory
+        temp_handle = StringIO()
+        img.save(temp_handle, 'png')
+        temp_handle.seek(0) # rewind the file
+
+        # save to the thumbnail field
+        suf = SimpleUploadedFile(os.path.split(self.pic.name)[-1],
+                                 temp_handle.read(),
+                                 content_type='image/png')
+        self.thumbnail.save(suf.name+'.png', suf, save=False)
+        self.thumbnail_width, self.thumbnail_height = img.size
+
+        # generate thumbmini
+        thumbmini_size = (200, 150)
+        img.thumbnail(thumbmini_size, Image.ANTIALIAS)
+
+        # save the thumbnail to memory
+        temp_handle = StringIO()
+        img.save(temp_handle, 'png')
+        temp_handle.seek(0) # rewind the file
+
+        # save to the thumbnail field
+        suf = SimpleUploadedFile(os.path.split(self.pic.name)[-1],
+                                 temp_handle.read(),
+                                 content_type='image/png')
+        self.thumbmini.save(suf.name+'.png', suf, save=False)
+        self.thumbmini_width, self.thumbmini_height = img.size
+
+        super(ProductInfo, self).save(*args,**kwargs)
+
     def delete(self, *args, **kwargs):
         if os.path.isfile(self.pic.path):
             os.remove(self.pic.path)
+        if os.path.isfile(self.thumbnail.path):
+            os.remove(self.thumbnail.path)
+        if os.path.isfile(self.thumbmini.path):
+            os.remove(self.thumbmini.path)
 
         super(ProductInfo, self).delete(*args,**kwargs)
 
@@ -183,9 +240,13 @@ class ProductInfoForm(forms.ModelForm):
         model = ProductInfo
         fields = '__all__'
 
-    def save_with_delete_old_pic(self, old_pic_path):
+    def save_with_delete_old_pic(self, old_pic_path, old_thumbnail_path, old_thumbmini_path):
         if os.path.isfile(old_pic_path):
             os.remove(old_pic_path)
+        if os.path.isfile(old_thumbnail_path):
+            os.remove(old_thumbnail_path)
+        if os.path.isfile(old_thumbmini_path):
+            os.remove(old_thumbmini_path)
         self.save()
 
 

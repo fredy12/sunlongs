@@ -171,15 +171,21 @@ def edit_product(request):
         product = ProductInfo.objects.get(id=product_id)
         # for delete the old picture before update product pic
         old_pic_path = ''
+        old_thumbnail_path = ''
+        old_thumbmini_path = ''
         if product.pic != '':
-            # when input pic is not null, we will not delete the old one.
+            # when input pic is null or blank, we will not delete the old one.
             if request.POST.get('pic') == None or request.POST.get('pic') == '':
                 old_pic_path = ''
+                old_thumbnail_path = ''
+                old_thumbmini_path = ''
             else:
                 old_pic_path = product.pic.path
+                old_thumbnail_path = product.thumbnail.path
+                old_thumbmini_path = product.thumbmini.path
         form = ProductInfoForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
-            form.save_with_delete_old_pic(old_pic_path)
+            form.save_with_delete_old_pic(old_pic_path, old_thumbnail_path, old_thumbmini_path)
     return HttpResponseRedirect('product.html?lang='+request.POST['lang'])
 
 

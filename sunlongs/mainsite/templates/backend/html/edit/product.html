@@ -140,7 +140,7 @@
 				                                    <i class="gallery-trash"></i>
 				                                </span>
 			                                </form>
-			                                <img src="{{ product.pic }}" />
+			                                <img src="{{ product.thumbmini }}" />
 			                                <p class="title display_name">{{ product.name }}</p>
 			                            </div>
 			                        </div>
@@ -193,9 +193,9 @@
                    	<small class="small span2">产品图片(大小600 * 450)</small>
                    	<div class="image-upload">
 					    <label for="product_pic_upload_{{product.id}}" class="do_preview_img">
-					        <img height="60px" width="60px" class="inline preview_img" src="{% if product.pic %}{{ product.pic }}{% else %}img/new-gallery-img.png{% endif %}" />
+					        <img height="60px" width="60px" class="inline preview_img" src="{% if product.thumbmini %}{{ product.thumbmini }}{% else %}img/new-gallery-img.png{% endif %}" />
 					    </label>
-						<input id="product_pic_upload_{{product.id}}" class="upload_img" type="file" name="pic" value="{{ product.pic }}" style="display:none;"/>
+						<input id="product_pic_upload_{{product.id}}" class="upload_img" type="file" name="pic" value="{{ product.thumbmini }}" style="display:none;"/>
 					</div>
                	</div>
                	<div style="margin-top: 5px;">

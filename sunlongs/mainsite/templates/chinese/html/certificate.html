@@ -56,11 +56,11 @@
 				<ul class="list-none metlist">
 					{% for image in certificate_images %}
 					<li class="list" style="width: 222px; margin-left: 16px; margin-right: 16px; height: 235px;">
-						<a href="{{ image.file_info }}" title="{{image.description}}" target="_blank" class="img">
-							<img src="{{ image.file_info }}" alt="{{image.description}}" title="{{image.description}}" width="139" height="196">
+						<a href="{{ image.thumbnail }}" title="{{image.description}}" target="_blank" class="img">
+							<img src="{{ image.thumbnail }}" alt="{{image.description}}" title="{{image.description}}" width="139" height="196">
 						</a>
 						<h3>
-							<a href="{{ image.file_info }}" title="{{image.description}}" target="_blank">{{image.display_name}}</a>
+							<a href="{{ image.thumbnail }}" title="{{image.description}}" target="_blank">{{image.display_name}}</a>
 						</h3>
 					</li>
 					{% endfor %}
