@@ -128,7 +128,7 @@ $(function(){
 	photoNum = Math.floor(890 / $('ul.photo-show-content').find('img:eq(0)').width());
 	$('ul.photo-show-content').marquee({
 	    auto: false,
-	    speed: 1000,
+	    speed: 300,
 	    showNum: photoNum,
 	    stepLen: 1,
 	    prevElement: $('#photoNext'),
